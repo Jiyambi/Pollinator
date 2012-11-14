@@ -1,0 +1,1 @@
+allegro-5.0.7-mingw-4.5.0
