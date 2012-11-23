@@ -1,28 +1,34 @@
-#include <stdio.h>
-#include <allegro5/allegro.h>
- 
+// Pollinator - C++ Desktop Version
+// Developed by Bounder Studios
+// Copyright Sarah Herzog, 2011, all rights reserved.
+//
+// Main
+//		Initiallization and setup for the game.
+
+// |----------------------------------------------------------------------------|
+// |								Includes									|
+// |----------------------------------------------------------------------------|
+#include "Constants.h"
+#include "Util.h"
+#include "Game.h"
+
+// |----------------------------------------------------------------------------|
+// |								  Main										|
+// |----------------------------------------------------------------------------|
 int main(int argc, char **argv)
 {
-   ALLEGRO_DISPLAY *display = NULL;
- 
-   if(!al_init()) {
-      fprintf(stderr, "failed to initialize allegro!\n");
-      return -1;
-   }
- 
-   display = al_create_display(640, 480);
-   if(!display) {
-      fprintf(stderr, "failed to create display!\n");
-      return -1;
-   }
- 
-   al_clear_to_color(al_map_rgb(0,0,0));
- 
-   al_flip_display();
- 
-   al_rest(10.0);
- 
-   al_destroy_display(display);
- 
-   return 0;
+	// Initiallize Allegro and Install Mouse
+	if(!al_init()) {
+		debug("Main: failed to initialise allegro.");
+		return -1;
+	}
+	debug("Main: Allegro initialised.");
+	if(!al_install_mouse()) {
+		debug("Main: failed to initialise the mouse.");
+		return -1;
+	}
+	debug("Main: mouse initialised.");
+	Game game;
+	return game.run();
+
 }
