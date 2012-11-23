@@ -63,7 +63,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Assets.cpp" />
+    <ClCompile Include="Coord.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ImageManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
+    <ClCompile Include="Util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Assets.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Coord.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="ImageManager.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="TitleScreen.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
