@@ -5,6 +5,17 @@
 // Main
 //		Initiallization and setup for the game.
 
+// TODO
+//	- Add mouse support to Input
+//	- Move timing functions to Input
+//	- Remove all Allegro references from Game
+//	- Ensure all Allegro code is confined to main, Input, Assets (and it's managers), and wrapper classes (Image, Text, etc)
+//	- Add click to change screen functionality to TitleScreen - loads MenuScreen.
+//	- Ensure that OnLoad, onExit, isDone, etc all work properly.
+//	- Add text
+//	- Add buttons
+//	- Begin gameplay work (additional todos to be fleshed out later)
+
 // |----------------------------------------------------------------------------|
 // |								Includes									|
 // |----------------------------------------------------------------------------|
