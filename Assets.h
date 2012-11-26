@@ -27,5 +27,6 @@ public:
 	// Destructor
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-	ImageManager* graphics;
+	ImageManager graphics;
+	FontManager fonts;
 };

@@ -16,16 +16,18 @@
 // |----------------------------------------------------------------------------|
 ImageManager::ImageManager () :
 	title_screen(NULL),
-	error(0) {
+	error(0) 
+{
 
 	// Initiallize Allegro Image I/O Addon
 	if(!al_init_image_addon()) {
-		OutputDebugString("ImageManager: failed to initialize image I/O.\n");
+		debug("ImageManager: failed to initialize image I/O.");
 		error = -1;
 	}
 
 	// Load in images
 	title_screen = al_load_bitmap("data/title_screen.bmp");
+	menu_screen = al_load_bitmap("data/menu_screen.bmp");
 
 	// Shut down the Allegro Image I/O Addon
 	al_shutdown_image_addon();
@@ -37,4 +39,5 @@ ImageManager::ImageManager () :
 ImageManager::~ImageManager() {
 	// Destroy all bitmaps
 	al_destroy_bitmap(title_screen);
+	al_destroy_bitmap(menu_screen);
 }

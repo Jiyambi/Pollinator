@@ -10,6 +10,7 @@
 // |								Includes									|
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
+#include "Util.h"
 
 // |----------------------------------------------------------------------------|
 // |					  Class Definition: ImageManager						|
@@ -26,6 +27,7 @@ public:
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	ALLEGRO_BITMAP* title_screen;
+	ALLEGRO_BITMAP* menu_screen;
 	int error;
 
 };

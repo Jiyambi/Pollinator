@@ -15,7 +15,7 @@
 // |----------------------------------------------------------------------------|
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
-TitleScreen::TitleScreen(Assets& new_assets) :
+TitleScreen::TitleScreen(Assets& assets) :
 	progress (0),
 	total (100),
 	title_screen (NULL),
@@ -26,24 +26,8 @@ TitleScreen::TitleScreen(Assets& new_assets) :
 	// TODO: *******************************************************************
 	//	Change QUIT to MENU when menu screen is implemented.
 
-	// Initiallize Allegro Image I/O Addon
-	if(!al_init_image_addon()) {
-		OutputDebugString("TitleScreen: failed to initialize image I/O.\n");
-		error = -1; setNextScreen(QUIT); done = true; return;
-	}
-
-	// Load in images to be used on the title screen
-	title_screen = al_load_bitmap("data\\title_screen.bmp");
-	if (!title_screen) {
-		OutputDebugString("TitleScreen: failed to load title.bmp.\n");
-		error = -1; setNextScreen(QUIT); done = true; return;
-	}
-
-	// Shut down the Allegro Image I/O Addon
-	al_shutdown_image_addon();
-
 	// Loading graphics into Image objects
-	background = new Image(title_screen);
+	background = new Image(assets.graphics.title_screen);
 }
 
 // |----------------------------------------------------------------------------|
@@ -85,7 +69,6 @@ int TitleScreen::onLoad() {
 // |----------------------------------------------------------------------------|
 // Called when switching to a different screen
 int TitleScreen::onExit() {
-	
 
 	return error;
 }
