@@ -3,7 +3,7 @@
 // Copyright Sarah Herzog, 2011, all rights reserved.
 //
 // Assets
-//		Struct holding the asset managers.
+//		Class holding the asset managers.
 #pragma once
 
 // |----------------------------------------------------------------------------|
@@ -12,9 +12,10 @@
 #include "Constants.h"
 #include "Util.h"
 #include "ImageManager.h"
+#include "FontManager.h"
 
 // |----------------------------------------------------------------------------|
-// |						  Struct Definition: Assets							|
+// |						  Class Definition: Assets							|
 // |----------------------------------------------------------------------------|
 class Assets {
 	

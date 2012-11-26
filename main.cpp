@@ -29,6 +29,10 @@ int main(int argc, char **argv)
 	}
 	debug("Main: mouse initialised.");
 	Game game;
+	if(game.init()){
+		debug("Main: failed to initialise the game object.");
+		return -1;
+	}
 	return game.run();
 
 }

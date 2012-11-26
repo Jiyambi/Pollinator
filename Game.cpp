@@ -50,10 +50,10 @@ Game::~Game() {
 }
 
 // |----------------------------------------------------------------------------|
-// |								 run()										|
+// |							  initialize()									|
 // |----------------------------------------------------------------------------|
-int Game::run() {
-	
+int Game::init() {
+
 	// FPS Regulator Setup
 	fps_reg = al_create_timer(1.0 / FPS);
 	if(!fps_reg) {
@@ -88,6 +88,15 @@ int Game::run() {
 	}
 	screens[TITLE] = new TitleScreen(assets);
 	current_screen = screens[TITLE];
+
+	return error;
+}
+
+// |----------------------------------------------------------------------------|
+// |								 run()										|
+// |----------------------------------------------------------------------------|
+int Game::run() {
+	
 
 	// Run Loop
 	while (!quit) {

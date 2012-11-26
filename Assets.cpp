@@ -3,7 +3,7 @@
 // Copyright Sarah Herzog, 2011, all rights reserved.
 //
 // Assets
-//		Struct holding the asset managers.
+//		Class holding the asset managers.
 
 // |----------------------------------------------------------------------------|
 // |								Includes									|

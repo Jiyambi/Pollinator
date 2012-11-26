@@ -65,6 +65,7 @@
   <ItemGroup>
     <ClCompile Include="Assets.cpp" />
     <ClCompile Include="Coord.cpp" />
+    <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageManager.cpp" />
@@ -76,6 +77,7 @@
     <ClInclude Include="Assets.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Coord.h" />
+    <ClInclude Include="FontManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageManager.h" />

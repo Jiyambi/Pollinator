@@ -30,8 +30,11 @@ public:
 	~Game();
 	// Destructor
 
+	int init();
+	// Sets up the game.
+
 	int run();
-	// Sets up the game and begins logic and draw loops.
+	// Runs input, logic and draw in game loop.
 
 	int changeScreen(SCREEN next_screen);
 	// Sets the current screen to the supplied screen index.
