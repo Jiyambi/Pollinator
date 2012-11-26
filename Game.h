@@ -51,8 +51,10 @@ protected:
 
 	// Allegro Utilities
 	ALLEGRO_DISPLAY* display;
-	ALLEGRO_EVENT_QUEUE* queue;
 	ALLEGRO_TIMER* fps_reg;
+	ALLEGRO_EVENT_QUEUE* timer_queue;
+	ALLEGRO_EVENT_QUEUE* keyboard_queue;
+	ALLEGRO_EVENT_QUEUE* mouse_queue;
 
 	// Miscellaneous
 	bool redraw;
