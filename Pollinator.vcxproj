@@ -69,6 +69,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageManager.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="Util.cpp" />
@@ -81,6 +82,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageManager.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="TitleScreen.h" />
     <ClInclude Include="Util.h" />

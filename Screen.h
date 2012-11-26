@@ -12,6 +12,7 @@
 // |								Includes									|
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
+#include "Input.h"
 
 // |----------------------------------------------------------------------------|
 // |						  Class Definition: Screen							|
@@ -26,7 +27,7 @@ public:
 	// ~Screen();
 	// Destructor
 
-	int virtual logic(ALLEGRO_EVENT& ev) = 0;
+	int virtual logic(Input& input) = 0;
 	// The logic function, which will be called by the main game loop.
 	// TO BE IMPLEMENTED BY SUB CLASS
 

@@ -2,8 +2,8 @@
 // Developed by Bounder Studios
 // Copyright Sarah Herzog, 2011, all rights reserved.
 //
-// Assets
-//		Class holding the asset managers.
+// Input
+//		Processes input and makes it available to the game.
 #pragma once
 
 // |----------------------------------------------------------------------------|
@@ -11,23 +11,35 @@
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
 #include "Util.h"
-#include "ImageManager.h"
-#include "FontManager.h"
+
 
 // |----------------------------------------------------------------------------|
-// |						  Class Definition: Assets							|
+// |						  Class Definition: Input							|
 // |----------------------------------------------------------------------------|
-class Assets {
-	
+class Input {
+
 public:
-	Assets();
+
+	Input ();
 	// Constructor
 
-	~Assets();
+	~Input();
 	// Destructor
 
+	int init();
+	// Sets up input manager.
+
+	int update();
+	// Updates mouse position, checks event queues.
+
+	bool is_empty();
+	// True if the event queues are empty
+	
+protected:
+
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-	ImageManager graphics;
-	FontManager fonts;
 	int error;
+	ALLEGRO_EVENT_QUEUE* keyboard_queue;
+	ALLEGRO_EVENT_QUEUE* mouse_queue;
+
 };

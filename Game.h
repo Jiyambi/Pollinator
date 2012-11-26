@@ -14,6 +14,7 @@
 #include "Constants.h"
 #include "Util.h"
 #include "Assets.h"
+#include "Input.h"
 #include "TitleScreen.h"
 
 
@@ -53,8 +54,9 @@ protected:
 	ALLEGRO_DISPLAY* display;
 	ALLEGRO_TIMER* fps_reg;
 	ALLEGRO_EVENT_QUEUE* timer_queue;
-	ALLEGRO_EVENT_QUEUE* keyboard_queue;
-	ALLEGRO_EVENT_QUEUE* mouse_queue;
+
+	// Input Management
+	Input input;
 
 	// Miscellaneous
 	bool redraw;

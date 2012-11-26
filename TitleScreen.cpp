@@ -18,7 +18,6 @@
 TitleScreen::TitleScreen(Assets& assets) :
 	progress (0),
 	total (100),
-	title_screen (NULL),
 	background (NULL) {
 
 	// Set MENU as the next screen after this one
@@ -34,7 +33,6 @@ TitleScreen::TitleScreen(Assets& assets) :
 // |							   Destructor									|
 // |----------------------------------------------------------------------------|
 TitleScreen::~TitleScreen() {
-	al_destroy_bitmap(title_screen);
 	delete background;
 }
 
@@ -42,7 +40,8 @@ TitleScreen::~TitleScreen() {
 // |							     logic()									|
 // |----------------------------------------------------------------------------|
 // The logic function, which will be called by the main game loop.
-int TitleScreen::logic(ALLEGRO_EVENT& ev) {
+int TitleScreen::logic(Input& input) {
+
 	return error;
 }
 

@@ -17,9 +17,7 @@
 Game::Game() :
 	// Initiallization List
 	display(NULL), 
-	timer_queue (NULL), 
-	keyboard_queue (NULL), 
-	mouse_queue (NULL), 
+	timer_queue (NULL),
 	fps_reg (NULL), 
 	redraw (true),
 	quit(false),
@@ -46,15 +44,13 @@ Game::~Game() {
 	// Allegro Cleanup
 	if (fps_reg) al_destroy_timer(fps_reg);
 	if (display) al_destroy_display(display);
-	if (timer_queue) al_destroy_event_queue(timer_queue);
-	if (keyboard_queue) al_destroy_event_queue(keyboard_queue);
-	if (mouse_queue) al_destroy_event_queue(mouse_queue);
+	if (timer_queue) al_destroy_event_queue(timer_queue);\
 
 	debug ("Game: object destroyed.");
 }
 
 // |----------------------------------------------------------------------------|
-// |							  initialize()									|
+// |							      init()									|
 // |----------------------------------------------------------------------------|
 int Game::init() {
 
@@ -76,16 +72,16 @@ int Game::init() {
 
 	// Event Queue Setup
 	timer_queue = al_create_event_queue();
-	keyboard_queue = al_create_event_queue();
-	mouse_queue = al_create_event_queue();
-	if(!timer_queue || !keyboard_queue || !mouse_queue) {
-		debug("Game: failed to create event queue.");
+	if(!timer_queue) {
+		debug("Game: failed to create timer event queue.");
 		al_destroy_display(display);
 		error = -1;
 	} 
 	al_register_event_source(timer_queue, al_get_display_event_source(display));
 	al_register_event_source(timer_queue, al_get_timer_event_source(fps_reg));
-	al_register_event_source(mouse_queue, al_get_mouse_event_source());
+
+	// Input manager initialisation
+	error = error || input.init();
 
 	// Create screens - set first screen to TITLE
 	screens = new Screen* [NUM_SCREENS];
@@ -94,6 +90,8 @@ int Game::init() {
 	}
 	screens[TITLE] = new TitleScreen(assets);
 	current_screen = screens[TITLE];
+	
+	debug("Game: object initialised.");
 
 	return error;
 }
@@ -109,7 +107,7 @@ int Game::run() {
 
 		ALLEGRO_EVENT ev;
 
-		// Check for timer related events
+		// Timer related updates and check if it's time to redraw
 		if (!al_event_queue_is_empty(timer_queue))
 		{
 			al_get_next_event(timer_queue, &ev);
@@ -125,24 +123,14 @@ int Game::run() {
 			}
 		}
 
-		// Check for mouse related events
-		if (!al_event_queue_is_empty(mouse_queue))
-		{
-			al_get_next_event(mouse_queue, &ev);
-			// call the current game's logic method.
-			error = error || current_screen->logic(ev);
-		}
+		// Process Input
+		error = error || input.update();
 
-		// Check for keyboard related events
-		if (!al_event_queue_is_empty(keyboard_queue))
-		{
-			al_get_next_event(keyboard_queue, &ev);
-			// call the current game's logic method.
-			error = error || current_screen->logic(ev);
-		}
+		// Game logic
+		error = error || current_screen->logic(input);
 
 		// If it's time to redraw and there are no other events waiting 
-		if (redraw && al_is_event_queue_empty(mouse_queue) && al_is_event_queue_empty(keyboard_queue)) {
+		if (redraw && input.is_empty()) {
 			// Call the current screen's draw method. 
 			error = error || current_screen->draw();
 			// Draw the backbuffer to the screen

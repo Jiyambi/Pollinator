@@ -28,7 +28,7 @@ public:
 	~TitleScreen();
 	// Destructor
 
-	int virtual logic(ALLEGRO_EVENT& ev);
+	int virtual logic(Input& input);
 	// The logic function, which will be called by the main game loop.
 
 	int virtual draw();
@@ -43,7 +43,6 @@ public:
 protected:
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-	ALLEGRO_BITMAP* title_screen;
 	Image* background;
 	int progress;
 	int total;
