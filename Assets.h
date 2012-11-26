@@ -26,6 +26,9 @@ public:
 	~Assets();
 	// Destructor
 
+	int init();
+	// Sets up assets.
+
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	ImageManager graphics;
 	FontManager fonts;

@@ -54,8 +54,7 @@ int Input::init() {
 	}
 	al_register_event_source(mouse_queue, al_get_mouse_event_source());
 
-	debug("Input: object initialised.");
-
+	if (!error) debug("Input: object initialised.");
 	return error;
 }
 
@@ -64,21 +63,27 @@ int Input::init() {
 // |----------------------------------------------------------------------------|
 int Input::update() {
 
-	ALLEGRO_EVENT ev;
+	ALLEGRO_EVENT mouse_ev, keyboard_ev;
+	bool mouse_error(false), keyboard_error(false);
 
 	// Check for mouse related events
 	if (!al_event_queue_is_empty(mouse_queue))
 	{
-		al_get_next_event(mouse_queue, &ev);
-		// TODO: Process the event
+		mouse_error = !al_get_next_event(mouse_queue, &mouse_ev);
+		if (!mouse_error)
+		{
+			// TODO: Process the event
+		}
 	}
 
 	// Check for keyboard related events
 	if (!al_event_queue_is_empty(keyboard_queue))
 	{
-		al_get_next_event(keyboard_queue, &ev);
-		// call the current game's logic method.
-		// TODO: Process the event
+		keyboard_error = !al_get_next_event(keyboard_queue, &keyboard_ev);
+		if (!keyboard_error)
+		{
+			// TODO: Process the event
+		}
 	}
 
 	return error;

@@ -10,6 +10,7 @@
 // |								Includes									|
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
+#include "Util.h"
 
 // |----------------------------------------------------------------------------|
 // |					   Class Definition: FontManager						|
@@ -23,6 +24,9 @@ public:
 
 	~FontManager();
 	// Destructor
+
+	int init();
+	// Sets up font manager.
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	ALLEGRO_FONT* reg;

@@ -25,6 +25,9 @@ public:
 	~ImageManager();
 	// Destructor
 
+	int init();
+	// Sets up image manager.
+
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	ALLEGRO_BITMAP* title_screen;
 	ALLEGRO_BITMAP* menu_screen;

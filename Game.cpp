@@ -55,44 +55,56 @@ Game::~Game() {
 int Game::init() {
 
 	// FPS Regulator Setup
-	fps_reg = al_create_timer(1.0 / FPS);
-	if(!fps_reg) {
-		OutputDebugString("Game: failed to create timer.\n");
-		error = -1;
+	if (!error)
+	{
+		fps_reg = al_create_timer(1.0 / FPS);
+		if(!fps_reg) {
+			OutputDebugString("Game: failed to create timer.\n");
+			error = -1;
+		}
 	}
  
 	// Display Setup
-	al_set_new_display_flags(ALLEGRO_FULLSCREEN_WINDOW);
-	display = al_create_display(SCREEN_W, SCREEN_H);
-	if(!display) {
-		OutputDebugString("Game: failed to create display.\n");
-		error = -1;
-	} 
-	al_set_target_bitmap(al_get_backbuffer(display));
+	if (!error)
+	{
+		al_set_new_display_flags(ALLEGRO_FULLSCREEN_WINDOW);
+		display = al_create_display(SCREEN_W, SCREEN_H);
+		if(!display) {
+			OutputDebugString("Game: failed to create display.\n");
+			error = -1;
+		} 
+		al_set_target_bitmap(al_get_backbuffer(display));
+	}
 
 	// Event Queue Setup
-	timer_queue = al_create_event_queue();
-	if(!timer_queue) {
-		debug("Game: failed to create timer event queue.");
-		al_destroy_display(display);
-		error = -1;
-	} 
-	al_register_event_source(timer_queue, al_get_display_event_source(display));
-	al_register_event_source(timer_queue, al_get_timer_event_source(fps_reg));
+	if (!error)
+	{
+		timer_queue = al_create_event_queue();
+		if(!timer_queue) {
+			debug("Game: failed to create timer event queue.");
+			error = -1;
+		} 
+		al_register_event_source(timer_queue, al_get_display_event_source(display));
+		al_register_event_source(timer_queue, al_get_timer_event_source(fps_reg));
+	}
 
-	// Input manager initialisation
+	// Input manager and asset initialisation
 	error = error || input.init();
+	error = error || assets.init();
 
 	// Create screens - set first screen to TITLE
-	screens = new Screen* [NUM_SCREENS];
-	for (int i = 0 ; i < NUM_SCREENS; ++i) {
-		screens[i] = NULL;
+	if (!error)
+	{
+		screens = new Screen* [NUM_SCREENS];
+		for (int i = 0 ; i < NUM_SCREENS; ++i) {
+			screens[i] = NULL;
+		}
+		screens[TITLE] = new TitleScreen(assets);
+		current_screen = screens[TITLE];
 	}
-	screens[TITLE] = new TitleScreen(assets);
-	current_screen = screens[TITLE];
 	
-	debug("Game: object initialised.");
-
+	if (!error) debug("Game: object initialised.");
+	else debug("Game: initialisation failed.");
 	return error;
 }
 
@@ -100,7 +112,6 @@ int Game::init() {
 // |								 run()										|
 // |----------------------------------------------------------------------------|
 int Game::run() {
-	
 
 	// Run Loop
 	while (!quit) {

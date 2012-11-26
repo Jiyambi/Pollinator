@@ -26,3 +26,14 @@ Assets::Assets() :
 Assets::~Assets() {
 	debug ("Assets: object destroyed.");
 }
+
+// |----------------------------------------------------------------------------|
+// |							      init()									|
+// |----------------------------------------------------------------------------|
+int Assets::init() {
+	error = error || graphics.init();
+	error = error || fonts.init();
+	if (!error) debug("Assets: object initialised.");
+	else debug("Assets: initialisation failed.");
+	return error;
+}
