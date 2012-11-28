@@ -141,7 +141,7 @@ int Game::run() {
 		error = error || current_screen->logic(input);
 
 		// If it's time to redraw and there are no other events waiting 
-		if (redraw && input.is_empty()) {
+		if (redraw && input.isEmpty()) {
 			// Call the current screen's draw method. 
 			error = error || current_screen->draw();
 			// Draw the backbuffer to the screen

@@ -7,6 +7,8 @@
 
 // TODO
 //	- Add mouse support to Input
+//	- Add keyboard support to Input
+//	- Add callback functions to Input for handling mouse and keyboard
 //	- Move timing functions to Input
 //	- Remove all Allegro references from Game
 //	- Ensure all Allegro code is confined to main, Input, Assets (and it's managers), and wrapper classes (Image, Text, etc)
@@ -34,16 +36,13 @@ int main(int argc, char **argv)
 		return -1;
 	}
 	debug("Main: Allegro initialised.");
-	if(!al_install_mouse()) {
-		debug("Main: failed to initialise the mouse.");
-		return -1;
-	}
-	debug("Main: mouse initialised.");
+
 	Game game;
 	if(game.init()){
 		debug("Main: failed to initialise the game object.");
 		return -1;
 	}
+
 	return game.run();
 
 }
