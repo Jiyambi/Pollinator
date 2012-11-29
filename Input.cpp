@@ -40,14 +40,21 @@ Input::~Input() {
 // |----------------------------------------------------------------------------|
 // |							      init()									|
 // |----------------------------------------------------------------------------|
-int Input::init() {
+int Input::init(Screen* first_screen) {
 
 	// Mouse installation
 	if(!al_install_mouse()) {
-		debug("Main: failed to initialise the mouse.");
+		debug("Input: failed to initialise the mouse.");
 		return -1;
 	}
-	debug("Main: mouse initialised.");
+	debug("Input: mouse initialised.");
+
+	// Keyboard installation
+	if(!al_install_keyboard()) {
+		debug("Input: failed to initialise the keyboard.");
+		return -1;
+	}
+	debug("Input: keyboard initialised.");
 	
 	// Event Queue Setup
 	keyboard_queue = al_create_event_queue();
@@ -62,6 +69,9 @@ int Input::init() {
 	}
 	al_register_event_source(mouse_queue, al_get_mouse_event_source());
 
+	// Initiallise current screen
+	current_screen = first_screen;
+
 	if (!error) debug("Input: object initialised.");
 	return error;
 }
@@ -70,6 +80,7 @@ int Input::init() {
 // |							      update()									|
 // |----------------------------------------------------------------------------|
 int Input::update() {
+	debug("Input: update() entered", 10);
 
 	ALLEGRO_EVENT mouse_ev, keyboard_ev;
 	bool mouse_error(false), keyboard_error(false);
@@ -83,17 +94,20 @@ int Input::update() {
 			// Process mouse location
 			if(mouse_ev.type == ALLEGRO_EVENT_MOUSE_AXES || mouse_ev.type == ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY) 
 			{
+				debug("Input: detected event - mouse movement", 9);
 				 mouse_x = mouse_ev.mouse.x;
 				 mouse_y = mouse_ev.mouse.y;
 			}
 			// Process clicks
 			else if(mouse_ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) 
 			{
+				debug("Input: detected event - mouse down");
 				// Call appropriate functions, send the pertinent mouse button to called function
 				if (current_screen) current_screen->onMouseDown(mouse_ev.mouse.button);
 			}
 			else if(mouse_ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) 
 			{
+				debug("Input: detected event - mouse up");
 				// Call appropriate functions, send the pertinent mouse button to called function
 				if (current_screen) current_screen->onMouseUp(mouse_ev.mouse.button);
 			}
@@ -109,17 +123,20 @@ int Input::update() {
 			// Process keypresses
 			if(keyboard_ev.type == ALLEGRO_EVENT_KEY_DOWN) 
 			{
+				debug("Input: detected event - key down");
 				// Call appropriate functions, send the pertinent keycode to called function
 				if (current_screen) current_screen->onKeyDown(keyboard_ev.keyboard.keycode);
 			}
 			else if(keyboard_ev.type == ALLEGRO_EVENT_KEY_UP) 
 			{
+				debug("Input: detected event - key up");
 				// Call appropriate functions, send the pertinent keycode to called function
 				if (current_screen) current_screen->onKeyUp(keyboard_ev.keyboard.keycode);
 			}
 		}
 	}
-
+	
+	debug("Input: update() exiting normally", 10);
 	return error;
 }
 

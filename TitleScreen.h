@@ -11,6 +11,7 @@
 // |								Includes									|
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
+#include "Util.h"
 #include "Screen.h"
 #include "Assets.h"
 #include "Image.h"
@@ -22,7 +23,7 @@ class TitleScreen : public Screen {
 
 public:
 
-	TitleScreen (Assets& new_assets);
+	TitleScreen (Assets& assets);
 	// Constructor
 
 	~TitleScreen();
@@ -50,6 +51,4 @@ protected:
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	Image* background;
-	int progress;
-	int total;
 };

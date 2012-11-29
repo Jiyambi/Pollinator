@@ -22,13 +22,13 @@ class MenuScreen : public Screen {
 
 public:
 
-	MenuScreen (Assets& new_assets);
+	MenuScreen (Assets& assets);
 	// Constructor
 
 	~MenuScreen();
 	// Destructor
 
-	int virtual logic(ALLEGRO_EVENT& ev);
+	int virtual logic(int mouse_x, int mouse_y);
 	// The logic function, which will be called by the main game loop.
 
 	int virtual draw();
@@ -39,11 +39,16 @@ public:
 
 	int virtual onExit();
 	// Called when switching to a different screen
+
+	// Input functions
+	int onMouseDown(int button);
+	int onMouseUp(int button);
+	int onKeyDown(int button);
+	int onKeyUp(int button);
 	
 protected:
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-	Assets* assets;
 	Image* background;
 	//Button button_adventure;
 	//Button button_zen;

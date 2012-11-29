@@ -16,6 +16,7 @@
 #include "Assets.h"
 #include "Input.h"
 #include "TitleScreen.h"
+#include "MenuScreen.h"
 
 
 // |----------------------------------------------------------------------------|

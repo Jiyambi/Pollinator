@@ -88,8 +88,7 @@ int Game::init() {
 		al_register_event_source(timer_queue, al_get_timer_event_source(fps_reg));
 	}
 
-	// Input manager and asset initialisation
-	error = error || input.init();
+	// Asset initialisation
 	error = error || assets.init();
 
 	// Create screens - set first screen to TITLE
@@ -100,8 +99,12 @@ int Game::init() {
 			screens[i] = NULL;
 		}
 		screens[TITLE] = new TitleScreen(assets);
+		screens[MENU] = new MenuScreen(assets);
 		current_screen = screens[TITLE];
 	}
+
+	// Input manager and asset initialisation
+	if (!error) error = error || input.init(current_screen);
 	
 	if (!error) debug("Game: object initialised.");
 	else debug("Game: initialisation failed.");
@@ -150,15 +153,18 @@ int Game::run() {
 
 		// If the current screen is done, switch to the new screen
 		if (current_screen->isDone()) {
+			debug("Game: current screen done");
 
 			// Check if the screen is telling the game to quit.
 			if (current_screen->getNextScreen() == QUIT) {
+				debug("Game: quitting");
 				// If so, quit.
 				return error;
 			}
 
 			// If the screen is NOT telling the game to quit, load the next screen
 			else {
+				debug("Game: moving to next screen");
 				// Perform onExit functions for the old screen
 				error = error || current_screen->onExit();
 				// Set the new screen as current

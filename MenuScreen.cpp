@@ -15,15 +15,14 @@
 // |----------------------------------------------------------------------------|
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
-MenuScreen::MenuScreen(Assets& new_assets) :
-	assets(&new_assets),
+MenuScreen::MenuScreen(Assets& assets) :
 	background (NULL) {
 
 	// Set next screen to QUIT - it will be updated by the buttons.
 	setNextScreen(QUIT);
 
 	// Loading graphics into Image objects
-	background = new Image(assets->graphics->menu_screen);
+	background = new Image(assets.graphics.menu_screen);
 }
 
 // |----------------------------------------------------------------------------|
@@ -37,11 +36,7 @@ MenuScreen::~MenuScreen() {
 // |							     logic()									|
 // |----------------------------------------------------------------------------|
 // The logic function, which will be called by the main game loop.
-int MenuScreen::logic(ALLEGRO_EVENT& ev) {
-
-	// If the button is clicked, pass to the 
-	if (ev.type = ALLEGRO_EVENT_MOUSE_BUTTON_UP)
-		done = true;
+int MenuScreen::logic(int mouse_x, int mouse_y) {
 
 	return error;
 }
@@ -60,7 +55,7 @@ int MenuScreen::draw() {
 // |----------------------------------------------------------------------------|
 // Called when the screen is loaded.
 int MenuScreen::onLoad() {
-
+	debug("MenuScreen: onLoad called");
 	return error;
 }
 
@@ -69,6 +64,42 @@ int MenuScreen::onLoad() {
 // |----------------------------------------------------------------------------|
 // Called when switching to a different screen
 int MenuScreen::onExit() {
+
+	return error;
+}
+
+// |----------------------------------------------------------------------------|
+// |							  onMouseDown()									|
+// |----------------------------------------------------------------------------|
+// Called when a mouse button is pressed down
+int MenuScreen::onMouseDown(int button) {
+
+	return error;
+}
+
+// |----------------------------------------------------------------------------|
+// |							  onMouseUp()									|
+// |----------------------------------------------------------------------------|
+// Called when a mouse button is released
+int MenuScreen::onMouseUp(int button) {
+	done = true;
+	return error;
+}
+
+// |----------------------------------------------------------------------------|
+// |							  onKeyDown()									|
+// |----------------------------------------------------------------------------|
+// Called when a keyboard button is pressed down
+int MenuScreen::onKeyDown(int button) {
+
+	return error;
+}
+
+// |----------------------------------------------------------------------------|
+// |							   onKeyUp()									|
+// |----------------------------------------------------------------------------|
+// Called when a keyboard button is released
+int MenuScreen::onKeyUp(int button) {
 
 	return error;
 }

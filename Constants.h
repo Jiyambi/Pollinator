@@ -30,6 +30,6 @@ const int SCREEN_H = 768;
 // |								enum SCREEN									|
 // |----------------------------------------------------------------------------|
 
-enum SCREEN {TITLE, /*MENU, ZEN, TIME, SURVIVAL,*/ NUM_SCREENS, QUIT};
+enum SCREEN {TITLE, MENU, /*ZEN, TIME, SURVIVAL,*/ NUM_SCREENS, QUIT};
 // TODO: ************************************************************************
 //	Update the SCREEN enum when new screens are implemented.

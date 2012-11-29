@@ -6,12 +6,8 @@
 //		Initiallization and setup for the game.
 
 // TODO
-//	- Add mouse support to Input
-//	- Add keyboard support to Input
-//	- Add callback functions to Input for handling mouse and keyboard
-//	- Move timing functions to Input
-//	- Remove all Allegro references from Game
-//	- Ensure all Allegro code is confined to main, Input, Assets (and it's managers), and wrapper classes (Image, Text, etc)
+//	- Figure out why keyboard isn't working
+//  - Figure out why callback functions aren't working
 //	- Add click to change screen functionality to TitleScreen - loads MenuScreen.
 //	- Ensure that OnLoad, onExit, isDone, etc all work properly.
 //	- Add text

@@ -16,17 +16,15 @@
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
 TitleScreen::TitleScreen(Assets& assets) :
-	progress (0),
-	total (100),
 	background (NULL) {
 
 	// Set MENU as the next screen after this one
-	setNextScreen(QUIT); 
-	// TODO: *******************************************************************
-	//	Change QUIT to MENU when menu screen is implemented.
+	setNextScreen(MENU); 
 
 	// Loading graphics into Image objects
 	background = new Image(assets.graphics.title_screen);
+
+	debug ("TitleScreen: object instantiated.");
 }
 
 // |----------------------------------------------------------------------------|
@@ -34,6 +32,7 @@ TitleScreen::TitleScreen(Assets& assets) :
 // |----------------------------------------------------------------------------|
 TitleScreen::~TitleScreen() {
 	delete background;
+	debug ("TitleScreen: object destroyed.");
 }
 
 // |----------------------------------------------------------------------------|
@@ -67,7 +66,7 @@ int TitleScreen::onLoad() {
 // |----------------------------------------------------------------------------|
 // Called when switching to a different screen
 int TitleScreen::onExit() {
-
+	debug ("TitleScreen: onExit called.");
 	return error;
 }
 
@@ -76,6 +75,7 @@ int TitleScreen::onExit() {
 // |----------------------------------------------------------------------------|
 // Called when a mouse button is pressed down
 int TitleScreen::onMouseDown(int button) {
+	debug ("TitleScreen: onMouseDown called.");
 
 	return error;
 }
@@ -85,7 +85,8 @@ int TitleScreen::onMouseDown(int button) {
 // |----------------------------------------------------------------------------|
 // Called when a mouse button is released
 int TitleScreen::onMouseUp(int button) {
-
+	debug ("TitleScreen: onMouseUp called.");
+	done = true;
 	return error;
 }
 

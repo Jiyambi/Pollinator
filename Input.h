@@ -39,7 +39,7 @@ public:
 	~Input();
 	// Destructor
 
-	int init();
+	int init(Screen* first_screen);
 	// Sets up input manager.
 
 	int update();
@@ -63,6 +63,7 @@ protected:
 	// Event Queues
 	ALLEGRO_EVENT_QUEUE* keyboard_queue;
 	ALLEGRO_EVENT_QUEUE* mouse_queue;
+	ALLEGRO_EVENT_QUEUE* draw_queue;
 
 	// Mouse Coordinates
 	int mouse_x;
