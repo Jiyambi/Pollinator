@@ -12,7 +12,6 @@
 // |								Includes									|
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
-#include "Input.h"
 
 // |----------------------------------------------------------------------------|
 // |						  Class Definition: Screen							|
@@ -27,7 +26,7 @@ public:
 	// ~Screen();
 	// Destructor
 
-	int virtual logic(Input& input) = 0;
+	int virtual logic(int mouse_x, int mouse_y) = 0;
 	// The logic function, which will be called by the main game loop.
 	// TO BE IMPLEMENTED BY SUB CLASS
 
@@ -51,6 +50,13 @@ public:
 
 	void virtual setNextScreen(SCREEN new_next) { next_screen= new_next; }
 	// Sets the screen that will be loaded after this one
+
+	// Input functions
+	// TO BE IMPLEMENTED BY SUB CLASS
+	int virtual onMouseDown(int button) = 0;
+	int virtual onMouseUp(int button) = 0;
+	int virtual onKeyDown(int button) = 0;
+	int virtual onKeyUp(int button) = 0;
 	
 protected:
 

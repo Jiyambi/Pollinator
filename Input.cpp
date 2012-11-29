@@ -18,8 +18,7 @@
 Input::Input() : 
 	keyboard_queue (NULL), 
 	mouse_queue (NULL), 
-	onMouseDown (NULL),
-	onMouseUp (NULL),
+	current_screen (NULL),
 	error(0)
 {
 
@@ -91,12 +90,12 @@ int Input::update() {
 			else if(mouse_ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) 
 			{
 				// Call appropriate functions, send the pertinent mouse button to called function
-				if (onMouseDown) (*onMouseDown) (mouse_ev.mouse.button);
+				if (current_screen) current_screen->onMouseDown(mouse_ev.mouse.button);
 			}
 			else if(mouse_ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) 
 			{
 				// Call appropriate functions, send the pertinent mouse button to called function
-				if (onMouseUp) (*onMouseUp) (mouse_ev.mouse.button);
+				if (current_screen) current_screen->onMouseUp(mouse_ev.mouse.button);
 			}
 		}
 	}
@@ -111,12 +110,12 @@ int Input::update() {
 			if(keyboard_ev.type == ALLEGRO_EVENT_KEY_DOWN) 
 			{
 				// Call appropriate functions, send the pertinent keycode to called function
-				if (onKeyDown) (*onMouseDown) (keyboard_ev.keyboard.keycode);
+				if (current_screen) current_screen->onKeyDown(keyboard_ev.keyboard.keycode);
 			}
-			else if(mouse_ev.type == ALLEGRO_EVENT_KEY_UP) 
+			else if(keyboard_ev.type == ALLEGRO_EVENT_KEY_UP) 
 			{
 				// Call appropriate functions, send the pertinent keycode to called function
-				if (onKeyUp) (*onMouseUp) (keyboard_ev.keyboard.keycode);
+				if (current_screen) current_screen->onKeyUp(keyboard_ev.keyboard.keycode);
 			}
 		}
 	}
@@ -129,32 +128,4 @@ int Input::update() {
 // |----------------------------------------------------------------------------|
 bool Input::isEmpty() {
 	return al_event_queue_is_empty(keyboard_queue) && al_event_queue_is_empty(mouse_queue);
-}
-
-// |----------------------------------------------------------------------------|
-// |							   addMouseDown()								|
-// |----------------------------------------------------------------------------|
-void Input::addMouseDown(void(*callback)(int)){
-	onMouseDown = callback;
-}
-
-// |----------------------------------------------------------------------------|
-// |							   addMouseUp()									|
-// |----------------------------------------------------------------------------|
-void Input::addMouseUp(void(*callback)(int)){
-	onMouseUp = callback;
-}
-
-// |----------------------------------------------------------------------------|
-// |							   addKeyDown()									|
-// |----------------------------------------------------------------------------|
-void Input::addKeyDown(void(*callback)(int)){
-	onKeyDown = callback;
-}
-
-// |----------------------------------------------------------------------------|
-// |							    addKeyUp()									|
-// |----------------------------------------------------------------------------|
-void Input::addKeyUp(void(*callback)(int)){
-	onKeyUp = callback;
 }

@@ -11,6 +11,7 @@
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
 #include "Util.h"
+#include "Screen.h"
 
 // |----------------------------------------------------------------------------|
 // |							Mouse Input Flags								|
@@ -47,12 +48,13 @@ public:
 	bool isEmpty();
 	// True if the event queues are empty
 
-	// Callback Editors
-	void addMouseDown(void(*callback)(int));
-	void addMouseUp(void(*callback)(int));
-	void addKeyDown(void(*callback)(int));
-	void addKeyUp(void(*callback)(int));
-	void clearCallbacks();
+	void setCurrentScreen(Screen* new_screen) { current_screen = new_screen; }
+	// Set the current screen, for mouse and keyboard callbacks
+
+	int getMouseX() {return mouse_x; }
+	int getMouseY() {return mouse_y; }
+	// Get functions for mouse coordinates
+
 	
 protected:
 
@@ -66,11 +68,8 @@ protected:
 	int mouse_x;
 	int mouse_y;
 
-	// Callback Functions
-	void (*onMouseDown)(int);
-	void (*onMouseUp)(int);
-	void (*onKeyDown)(int);
-	void (*onKeyUp)(int);
+	// Current Screen
+	Screen* current_screen;
 
 	// Error
 	int error;

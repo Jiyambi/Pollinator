@@ -137,8 +137,8 @@ int Game::run() {
 		// Process Input
 		error = error || input.update();
 
-		// Game logic
-		error = error || current_screen->logic(input);
+		// Game logic (pass in mouse coordinates)
+		error = error || current_screen->logic(input.getMouseX(), input.getMouseY());
 
 		// If it's time to redraw and there are no other events waiting 
 		if (redraw && input.isEmpty()) {
@@ -165,6 +165,8 @@ int Game::run() {
 				current_screen = screens[current_screen->getNextScreen()];
 				// Perform onLoad functions for the new screen
 				error = error || current_screen->onLoad();
+				// Set up input functions
+				input.setCurrentScreen(current_screen);
 			}
 
 		}
