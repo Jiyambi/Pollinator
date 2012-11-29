@@ -23,6 +23,8 @@ MenuScreen::MenuScreen(Assets& assets) :
 
 	// Loading graphics into Image objects
 	background = new Image(assets.graphics.menu_screen);
+
+	debug ("MenuScreen: object instantiated.");
 }
 
 // |----------------------------------------------------------------------------|
@@ -30,6 +32,7 @@ MenuScreen::MenuScreen(Assets& assets) :
 // |----------------------------------------------------------------------------|
 MenuScreen::~MenuScreen() {
 	delete background;
+	debug ("MenuScreen: object destroyed.");
 }
 
 // |----------------------------------------------------------------------------|
@@ -37,6 +40,7 @@ MenuScreen::~MenuScreen() {
 // |----------------------------------------------------------------------------|
 // The logic function, which will be called by the main game loop.
 int MenuScreen::logic(int mouse_x, int mouse_y) {
+	debug ("MenuScreen: logic() called.", 10);
 
 	return error;
 }
@@ -46,6 +50,7 @@ int MenuScreen::logic(int mouse_x, int mouse_y) {
 // |----------------------------------------------------------------------------|
 // The draw function, which will be called by the main game loop.
 int MenuScreen::draw() {
+	debug ("MenuScreen: draw() called.", 10);
 	if (background) background->draw();
 	return error;
 }
@@ -64,7 +69,7 @@ int MenuScreen::onLoad() {
 // |----------------------------------------------------------------------------|
 // Called when switching to a different screen
 int MenuScreen::onExit() {
-
+	debug ("MenuScreen: onExit called.");
 	return error;
 }
 
@@ -73,6 +78,7 @@ int MenuScreen::onExit() {
 // |----------------------------------------------------------------------------|
 // Called when a mouse button is pressed down
 int MenuScreen::onMouseDown(int button) {
+	debug ("MenuScreen: onMouseDown called.");
 
 	return error;
 }
@@ -82,6 +88,7 @@ int MenuScreen::onMouseDown(int button) {
 // |----------------------------------------------------------------------------|
 // Called when a mouse button is released
 int MenuScreen::onMouseUp(int button) {
+	debug ("MenuScreen: onMouseUp called.");
 	done = true;
 	return error;
 }
@@ -91,6 +98,7 @@ int MenuScreen::onMouseUp(int button) {
 // |----------------------------------------------------------------------------|
 // Called when a keyboard button is pressed down
 int MenuScreen::onKeyDown(int button) {
+	debug ("MenuScreen: onKeyDown called.");
 
 	return error;
 }
@@ -100,6 +108,7 @@ int MenuScreen::onKeyDown(int button) {
 // |----------------------------------------------------------------------------|
 // Called when a keyboard button is released
 int MenuScreen::onKeyUp(int button) {
+	debug ("MenuScreen: onKeyUp called.");
 
 	return error;
 }

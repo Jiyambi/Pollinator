@@ -7,9 +7,6 @@
 
 // TODO
 //	- Figure out why keyboard isn't working
-//  - Figure out why callback functions aren't working
-//	- Add click to change screen functionality to TitleScreen - loads MenuScreen.
-//	- Ensure that OnLoad, onExit, isDone, etc all work properly.
 //	- Add text
 //	- Add buttons
 //	- Begin gameplay work (additional todos to be fleshed out later)

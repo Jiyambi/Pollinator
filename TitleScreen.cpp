@@ -40,6 +40,7 @@ TitleScreen::~TitleScreen() {
 // |----------------------------------------------------------------------------|
 // The logic function, which will be called by the main game loop.
 int TitleScreen::logic(int mouse_x, int mouse_y) {
+	debug ("TitleScreen: logic() called.", 10);
 
 	return error;
 }
@@ -49,6 +50,8 @@ int TitleScreen::logic(int mouse_x, int mouse_y) {
 // |----------------------------------------------------------------------------|
 // The draw function, which will be called by the main game loop.
 int TitleScreen::draw() {
+	debug ("TitleScreen: draw() called.", 10);
+
 	background->draw();
 	return error;
 }
@@ -58,6 +61,7 @@ int TitleScreen::draw() {
 // |----------------------------------------------------------------------------|
 // Called when the screen is loaded.
 int TitleScreen::onLoad() {
+	debug ("TitleScreen: onLoad called.");
 	return error;
 }
 
@@ -95,7 +99,7 @@ int TitleScreen::onMouseUp(int button) {
 // |----------------------------------------------------------------------------|
 // Called when a keyboard button is pressed down
 int TitleScreen::onKeyDown(int button) {
-
+	debug ("TitleScreen: onKeyDown called.");
 	return error;
 }
 
@@ -104,6 +108,7 @@ int TitleScreen::onKeyDown(int button) {
 // |----------------------------------------------------------------------------|
 // Called when a keyboard button is released
 int TitleScreen::onKeyUp(int button) {
+	debug ("TitleScreen: onKeyUp called.");
 
 	return error;
 }
