@@ -7,9 +7,16 @@
 
 // TODO
 //	- Figure out why keyboard isn't working
-//	- Add text
 //	- Add buttons
-//	- Begin gameplay work (additional todos to be fleshed out later)
+//	- Add music
+//	- Add zen mode screen
+//	- Add zen mode background
+//	- Add bee
+//	- Add bee controls
+//	- Add flowers
+//	- Add pollen
+//	- Add scoring UI
+//	- Add pesticide
 
 // |----------------------------------------------------------------------------|
 // |								Includes									|

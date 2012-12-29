@@ -22,6 +22,8 @@ public:
 
 	Coord () : x(0), y(0) {}
 	// Default constructor
+	Coord (int newx, int newy) : x(newx), y(newy) {}
+	// Constructor
 	
 	//~~~~~~~~~~~~~~~~~~~~~~   Operator Overloading   ~~~~~~~~~~~~~~~~~~~~~~~~~//
 	Coord operator+(Coord& rhs);

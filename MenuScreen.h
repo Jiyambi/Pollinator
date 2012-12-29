@@ -14,6 +14,7 @@
 #include "Screen.h"
 #include "Assets.h"
 #include "Image.h"
+#include "Button.h"
 
 // |----------------------------------------------------------------------------|
 // |						  Class Definition: TitleScreen						|
