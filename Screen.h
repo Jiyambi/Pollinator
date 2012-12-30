@@ -51,6 +51,9 @@ public:
 	void virtual setNextScreen(SCREEN new_next) { next_screen= new_next; }
 	// Sets the screen that will be loaded after this one
 
+	void virtual setDone(bool new_done) { done = new_done; }
+	// Sets whether the screen will quit or not
+
 	// Input functions
 	// TO BE IMPLEMENTED BY SUB CLASS
 	int virtual onMouseDown(int button) = 0;

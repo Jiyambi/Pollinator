@@ -57,6 +57,9 @@ int Button::draw() {
 			if (image_selected) image_selected->draw();
 			else if (image_normal) image_normal->draw();
 		}
+		else {
+			if (image_normal) image_normal->draw();
+		}
 	}
 	else {
 		if (image_disabled) image_disabled->draw();
@@ -73,9 +76,22 @@ int Button::draw() {
 int Button::logic(int mouse_x, int mouse_y) {
 	debug ("Button: logic() called.", 10);
 
+	// Detects mouse movement into the button. If the mouse button is down,
+	//		sets button to pressed as well as selected.
 	if (mouse_x >= anchor.x && mouse_x <= anchor.x+size.x 
-		&& mouse_y >= anchor.y && mouse_y <= anchor.y+size.y)
+		&& mouse_y >= anchor.y && mouse_y <= anchor.y+size.y && !selected) {
+		debug ("Button: mouse-in detected");
 		selected = true;
+		if(mouse_down) pressed = true;
+	}
+
+	// Detects mouse movement out of the button. Also unpresses button.
+	else if ((mouse_x < anchor.x || mouse_x > anchor.x+size.x 
+		|| mouse_y < anchor.y || mouse_y > anchor.y+size.y ) && selected) {
+		debug ("Button: mouse-out detected");
+		selected = false;
+		pressed = false;
+	}
 
 	return error;
 }
@@ -87,6 +103,7 @@ int Button::onMouseDown(int button) {
 	debug ("Button: onMouseDown() called.");
 
 	if (selected) pressed = true;
+	mouse_down = true;
 
 	return error;
 }
@@ -101,34 +118,25 @@ int Button::onMouseUp(int button) {
 		pressed = false;
 		onClick();
 	}
+	mouse_down = false;
 
 	return error;
 }
 
 // |----------------------------------------------------------------------------|
-// |							     onMouseUp()								|
+// |							     onKeyDown()								|
 // |----------------------------------------------------------------------------|
 int Button::onKeyDown(int button) {
 	debug ("Button: onKeyDown() called.");
 
-	if (selected) {
-		// Can add code for if key is enter
-		pressed=true;
-	}
-
 	return error;
 }
 
 // |----------------------------------------------------------------------------|
-// |							     onMouseUp()								|
+// |							      onKeyUp() 		 						|
 // |----------------------------------------------------------------------------|
 int Button::onKeyUp(int button) {
 	debug ("Button: onKeyUp() called.");
-
-	if (selected && pressed) {
-		pressed = false;
-		onClick();
-	}
 
 	return error;
 }

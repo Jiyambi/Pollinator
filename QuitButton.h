@@ -2,8 +2,8 @@
 // Developed by Bounder Studios
 // Copyright Sarah Herzog, 2011, all rights reserved.
 //
-// ImageManager
-//		Contains all BITMAP objects to be used throughout the program.
+// QuitButton
+//		Defines the quit button's location, text, image, and function. 
 #pragma once
 
 // |----------------------------------------------------------------------------|
@@ -11,31 +11,28 @@
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
 #include "Util.h"
+#include "Button.h"
+#include "Assets.h"
+#include "Screen.h"
 
 // |----------------------------------------------------------------------------|
-// |					  Class Definition: ImageManager						|
+// |						  Class Definition: QuitButton						|
 // |----------------------------------------------------------------------------|
-class ImageManager {
-
+class QuitButton : public Button {
+	
 public:
 
-	ImageManager ();
+	QuitButton (Assets& assets, Screen* new_parent);
 	// Constructor
 
-	~ImageManager();
-	// Destructor
+	~QuitButton ();
+	// De-constructor
 
-	int init();
-	// Sets up image manager.
-
+	int virtual onClick();
+	// Main function for this button
+	
+protected:
+	
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-	ALLEGRO_BITMAP* title_screen;
-	ALLEGRO_BITMAP* menu_screen;
-	ALLEGRO_BITMAP* flower_blue;
-	ALLEGRO_BITMAP* flower_red;
-	ALLEGRO_BITMAP* flower_green;
-	ALLEGRO_BITMAP* flower_yellow;
-	ALLEGRO_BITMAP* flower_gray;
-	int error;
-
+	Screen* parent;		// Pointer to the parent screen
 };

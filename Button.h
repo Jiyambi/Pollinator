@@ -39,7 +39,7 @@ public:
 	int virtual onKeyDown(int button);
 	int virtual onKeyUp(int button);
 
-	void virtual onClick() = 0;
+	int virtual onClick() = 0;
 	// Main function for this button
 	// TO BE IMPLEMENTED BY SUB CLASS
 	
@@ -55,6 +55,7 @@ protected:
 	bool enabled;					// True if the button is enabled, false if disabled
 	bool pressed;					// True if the button is pressed, false if not
 	bool selected;					// True if the button is selected, false if not
+	bool mouse_down;				// True if mouse is down, false if not.
 
 	int error;
 

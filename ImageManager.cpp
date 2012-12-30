@@ -16,6 +16,12 @@
 // |----------------------------------------------------------------------------|
 ImageManager::ImageManager () :
 	title_screen(NULL),
+	menu_screen(NULL),
+	flower_blue(NULL),
+	flower_red(NULL),
+	flower_green(NULL),
+	flower_yellow(NULL),
+	flower_gray(NULL),
 	error(0) 
 {
 }
@@ -27,6 +33,11 @@ ImageManager::~ImageManager() {
 	// Destroy all bitmaps
 	al_destroy_bitmap(title_screen);
 	al_destroy_bitmap(menu_screen);
+	al_destroy_bitmap(flower_blue);
+	al_destroy_bitmap(flower_red);
+	al_destroy_bitmap(flower_green);
+	al_destroy_bitmap(flower_yellow);
+	al_destroy_bitmap(flower_gray);
 }
 
 // |----------------------------------------------------------------------------|
@@ -53,6 +64,36 @@ int ImageManager::init() {
 		if (!menu_screen) 
 		{
 			debug("ImageManager: failed to load data/menu_screen.bmp.");
+			error = -1;
+		}
+		flower_blue = al_load_bitmap("data/flower_blue.png");
+		if (!menu_screen) 
+		{
+			debug("ImageManager: failed to load data/flower_blue.png.");
+			error = -1;
+		}
+		flower_red = al_load_bitmap("data/flower_red.png");
+		if (!menu_screen) 
+		{
+			debug("ImageManager: failed to load data/flower_red.png.");
+			error = -1;
+		}
+		flower_yellow = al_load_bitmap("data/flower_yellow.png");
+		if (!menu_screen) 
+		{
+			debug("ImageManager: failed to load data/flower_yellow.png.");
+			error = -1;
+		}
+		flower_green = al_load_bitmap("data/flower_green.png");
+		if (!menu_screen) 
+		{
+			debug("ImageManager: failed to load data/flower_green.png.");
+			error = -1;
+		}
+		flower_gray = al_load_bitmap("data/flower_gray.png");
+		if (!menu_screen) 
+		{
+			debug("ImageManager: failed to load data/flower_gray.png.");
 			error = -1;
 		}
 	}
