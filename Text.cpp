@@ -10,20 +10,25 @@
 // |								Includes									|
 // |----------------------------------------------------------------------------|
 #include "Text.h"
-#include <string>
 
 // |----------------------------------------------------------------------------|
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
 Text::Text () : 
-	font(NULL), color(al_map_rgb(255,255,255)), align(ALLEGRO_ALIGN_LEFT) {
+	font(NULL), 
+	color(al_map_rgb(255,255,255)),
+	align(ALLEGRO_ALIGN_LEFT) {
 }
 Text::Text (ALLEGRO_FONT* new_font) :
-	font(new_font), color(al_map_rgb(255,255,255)), align(ALLEGRO_ALIGN_LEFT) {
+	font(new_font), 
+	color(al_map_rgb(255,255,255)), 
+	align(ALLEGRO_ALIGN_LEFT) {
 
 }
-Text::Text (ALLEGRO_FONT* new_font, ALLEGRO_COLOR new_color) :
-	font(new_font), color(new_color), align(ALLEGRO_ALIGN_LEFT) {
+Text::Text (ALLEGRO_FONT* new_font, int r, int g, int b) :
+	font(new_font), 
+	color(al_map_rgb(255,255,255)), 
+	align(ALLEGRO_ALIGN_LEFT) {
 }
 	
 // |----------------------------------------------------------------------------|
@@ -39,11 +44,11 @@ void Text::draw() {
 // |----------------------------------------------------------------------------|
 // |						  Operator Overloading								|
 // |----------------------------------------------------------------------------|
-//Text Text::operator=(string rhs) {
-//	content = rhs;
-//
-//	return *this;
-//}
+Text Text::operator=(string rhs) {
+	content = rhs;
+
+	return *this;
+}
 
 
 // |----------------------------------------------------------------------------|

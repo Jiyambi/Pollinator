@@ -14,6 +14,7 @@
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
 Button::Button() :
+	text(0),
 	image_normal(0),
 	image_selected(0),
 	image_pressed(0),
@@ -23,6 +24,7 @@ Button::Button() :
 	enabled(true),
 	selected(false),
 	pressed(false),
+	mouse_down(false),
 	error(0) {		
 
 	debug ("Button: object instantiated.");
@@ -32,6 +34,7 @@ Button::Button() :
 // |							   Destructor									|
 // |----------------------------------------------------------------------------|
 Button::~Button() {
+	delete text;	
 	delete image_normal;		
 	delete image_selected;		
 	delete image_pressed;		
@@ -65,6 +68,8 @@ int Button::draw() {
 		if (image_disabled) image_disabled->draw();
 		else if (image_normal) image_normal->draw();
 	}
+
+	if(text) text->draw();
 
 	return error;
 }
@@ -139,4 +144,19 @@ int Button::onKeyUp(int button) {
 	debug ("Button: onKeyUp() called.");
 
 	return error;
+}
+
+// |----------------------------------------------------------------------------|
+// |							      setAnchor() 		 						|
+// |----------------------------------------------------------------------------|
+void Button::setAnchor(Coord new_anchor) {
+	debug ("Button: setAnchor() called.");
+
+	anchor = new_anchor;
+	if(text) text->setAnchor(new_anchor+size/2);
+	if(image_normal) image_normal->setAnchor(new_anchor);	
+	if(image_selected) image_selected->setAnchor(new_anchor);	
+	if(image_pressed) image_pressed->setAnchor(new_anchor);	
+	if(image_disabled) image_disabled->setAnchor(new_anchor);
+
 }

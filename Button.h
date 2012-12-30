@@ -13,6 +13,7 @@
 #include "Coord.h"
 #include "Image.h"
 #include "Assets.h"
+#include "Text.h"
 
 // |----------------------------------------------------------------------------|
 // |						  Class Definition: Button							|
@@ -42,10 +43,14 @@ public:
 	int virtual onClick() = 0;
 	// Main function for this button
 	// TO BE IMPLEMENTED BY SUB CLASS
+
+	// Setter functions
+	void virtual setAnchor(Coord new_anchor);
 	
 protected:
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+	Text* text;						// Text that the image will display
 	Image* image_normal;			// Pointer to image for this button
 	Image* image_selected;			// Pointer to selected image for this button
 	Image* image_pressed;			// Pointer to pressed image for this button

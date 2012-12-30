@@ -7,7 +7,6 @@
 
 // TODO
 //	- Figure out why keyboard isn't working
-//	- Add buttons
 //	- Add music
 //	- Add zen mode screen
 //	- Add zen mode background

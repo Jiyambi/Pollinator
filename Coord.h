@@ -26,29 +26,29 @@ public:
 	// Constructor
 	
 	//~~~~~~~~~~~~~~~~~~~~~~   Operator Overloading   ~~~~~~~~~~~~~~~~~~~~~~~~~//
-	Coord operator+(Coord& rhs);
-	Coord operator+(int& rhs);
-	Coord operator+(float& rhs);
-	Coord operator+=(Coord& rhs);
-	Coord operator+=(int& rhs);
-	Coord operator+=(float& rhs);
-	Coord operator-(Coord& rhs);
-	Coord operator-(int& rhs);
-	Coord operator-(float& rhs);
-	Coord operator-=(Coord& rhs);
-	Coord operator-=(int& rhs);
-	Coord operator-=(float& rhs);
-	Coord operator*(int& rhs);
-	Coord operator*(float& rhs);
-	Coord operator*=(int& rhs);
-	Coord operator*=(float& rhs);
-	Coord operator/(int& rhs);
-	Coord operator/(float& rhs);
-	Coord operator/=(int& rhs);
-	Coord operator/=(float& rhs);
-	Coord operator=(Coord& rhs);
-	Coord operator=(int& rhs);
-	Coord operator=(float& rhs);
+	Coord operator+(const Coord& rhs);
+	Coord operator+(const int& rhs);
+	Coord operator+(const float& rhs);
+	Coord operator+=(const Coord& rhs);
+	Coord operator+=(const int& rhs);
+	Coord operator+=(const float& rhs);
+	Coord operator-(const Coord& rhs);
+	Coord operator-(const int& rhs);
+	Coord operator-(const float& rhs);
+	Coord operator-=(const Coord& rhs);
+	Coord operator-=(const int& rhs);
+	Coord operator-=(const float& rhs);
+	Coord operator*(const int& rhs);
+	Coord operator*(const float& rhs);
+	Coord operator*=(const int& rhs);
+	Coord operator*=(const float& rhs);
+	Coord operator/(const int& rhs);
+	Coord operator/(const float& rhs);
+	Coord operator/=(const int& rhs);
+	Coord operator/=(const float& rhs);
+	Coord operator=(const Coord& rhs);
+	Coord operator=(const int& rhs);
+	Coord operator=(const float& rhs);
 	
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	int x, y;

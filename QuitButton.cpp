@@ -32,8 +32,12 @@ QuitButton::QuitButton(Assets& assets, Screen* new_parent) :
 	size.y = 210;
 
 	// Set anchor of button
-	anchor.x = 20;
-	anchor.y = 20;
+	setAnchor(Coord(500,500));
+
+	// Set text
+	text = new Text(assets.fonts.reg, 255, 255, 255);
+	*text = "QUIT";
+	text->setAnchor(anchor+Coord(95,100));
 
 	debug ("QuitButton: object instantiated.");
 }

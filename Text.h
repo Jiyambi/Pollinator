@@ -13,6 +13,7 @@
 #include "Constants.h"
 #include "Coord.h"
 #include <string>
+using namespace std;
 
 // |----------------------------------------------------------------------------|
 // |						  Class Definition: Text							|
@@ -24,7 +25,7 @@ public:
 	// Constructors
 	Text ();
 	Text (ALLEGRO_FONT* new_font);
-	Text (ALLEGRO_FONT* new_font, ALLEGRO_COLOR new_color);
+	Text (ALLEGRO_FONT* new_font, int r, int g, int b);
 	
 	// Draws the image to the active bitmap;
 	void virtual draw();
@@ -38,7 +39,7 @@ public:
 	void virtual setAnchor(Coord new_anchor) { anchor = new_anchor; }
 
 	// Operator Overloading
-//	Text operator=(string rhs);
+	Text operator=(string rhs);
 	
 protected:
 
