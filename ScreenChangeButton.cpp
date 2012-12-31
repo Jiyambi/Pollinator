@@ -2,60 +2,59 @@
 // Developed by Bounder Studios
 // Copyright Sarah Herzog, 2011, all rights reserved.
 //
-// QuitButton
-//		Defines the quit button's location, text, image, and function. 
+// ScreenChangeButton
+//		Defines the screen change button's location, text, image, and function. 
 
 
 // |----------------------------------------------------------------------------|
 // |								Includes									|
 // |----------------------------------------------------------------------------|
-#include "QuitButton.h"
+#include "ScreenChangeButton.h"
 
 // |----------------------------------------------------------------------------|
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
-QuitButton::QuitButton(Assets& assets, Screen* new_parent) :
+ScreenChangeButton::ScreenChangeButton(Assets& assets, Screen* new_parent, SCREEN new_screen_to_change, string new_text) :
 	parent(new_parent) {
 	
 	// Loading graphics into Image objects
 	image_normal = new Image(assets.graphics.flower_blue);
-	image_normal->setAnchor(Coord(20,20));
 	image_selected = new Image(assets.graphics.flower_yellow);
-	image_selected->setAnchor(Coord(20,20));
 	image_pressed = new Image(assets.graphics.flower_red);
-	image_pressed->setAnchor(Coord(20,20));
 	image_disabled = new Image(assets.graphics.flower_gray);
-	image_disabled->setAnchor(Coord(20,20));
 
 	// Set size of button
 	size.x = 210;
 	size.y = 210;
 
-	// Set anchor of button
-	setAnchor(Coord(500,500));
-
 	// Set text
 	text = new Text(assets.fonts.reg, 255, 255, 255);
-	*text = "QUIT";
-	text->setAnchor(anchor+Coord(115,100));
+	*text = new_text;
 
-	debug ("QuitButton: object instantiated.");
+	// Set click to screen
+	change_to = new_screen_to_change;
+
+	// Set anchor of button
+	setAnchor(Coord(0,0));
+
+	debug ("ScreenChangeButton: object instantiated.");
 }
 
 // |----------------------------------------------------------------------------|
 // |							   Destructor									|
 // |----------------------------------------------------------------------------|
-QuitButton::~QuitButton() {
-	debug ("QuitButton: object instantiated.");
+ScreenChangeButton::~ScreenChangeButton() {
+	debug ("ScreenChangeButton: object instantiated.");
 }
 
 // |----------------------------------------------------------------------------|
 // |							      onClick() 		 						|
 // |----------------------------------------------------------------------------|
-int QuitButton::onClick() {
-	debug ("QuitButton: onClick() called.");
+int ScreenChangeButton::onClick() {
+	debug ("ScreenChangeButton: onClick() called.");
 
-	parent->setNextScreen(QUIT);
+	// Change the next screen to this button's target screen
+	parent->setNextScreen(change_to);
 	parent->setDone(true);
 
 	return error;

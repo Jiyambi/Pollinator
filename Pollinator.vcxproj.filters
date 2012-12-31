@@ -51,10 +51,10 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="QuitButton.cpp">
+    <ClCompile Include="Text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Text.cpp">
+    <ClCompile Include="ScreenChangeButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,10 +98,10 @@
     <ClInclude Include="Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="QuitButton.h">
+    <ClInclude Include="Text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Text.h">
+    <ClInclude Include="ScreenChangeButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

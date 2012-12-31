@@ -46,6 +46,7 @@ public:
 
 	// Setter functions
 	void virtual setAnchor(Coord new_anchor);
+	void virtual setEnabled(bool new_enabled) { enabled = new_enabled; }
 	
 protected:
 

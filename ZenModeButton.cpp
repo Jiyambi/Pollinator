@@ -2,19 +2,19 @@
 // Developed by Bounder Studios
 // Copyright Sarah Herzog, 2011, all rights reserved.
 //
-// QuitButton
-//		Defines the quit button's location, text, image, and function. 
+// ZenModeButton
+//		Defines the zen mode button's location, text, image, and function. 
 
 
 // |----------------------------------------------------------------------------|
 // |								Includes									|
 // |----------------------------------------------------------------------------|
-#include "QuitButton.h"
+#include "ZenModeButton.h"
 
 // |----------------------------------------------------------------------------|
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
-QuitButton::QuitButton(Assets& assets, Screen* new_parent) :
+ZenModeButton::ZenModeButton(Assets& assets, Screen* new_parent) :
 	parent(new_parent) {
 	
 	// Loading graphics into Image objects
@@ -32,29 +32,30 @@ QuitButton::QuitButton(Assets& assets, Screen* new_parent) :
 	size.y = 210;
 
 	// Set anchor of button
-	setAnchor(Coord(500,500));
+	setAnchor(Coord(200,200));
 
 	// Set text
 	text = new Text(assets.fonts.reg, 255, 255, 255);
-	*text = "QUIT";
-	text->setAnchor(anchor+Coord(115,100));
+	*text = "ZEN MODE";
+	text->setAnchor(anchor+Coord(120,100));
 
-	debug ("QuitButton: object instantiated.");
+	debug ("ZenModeButton: object instantiated.");
 }
 
 // |----------------------------------------------------------------------------|
 // |							   Destructor									|
 // |----------------------------------------------------------------------------|
-QuitButton::~QuitButton() {
-	debug ("QuitButton: object instantiated.");
+ZenModeButton::~ZenModeButton() {
+	debug ("ZenModeButton: object instantiated.");
 }
 
 // |----------------------------------------------------------------------------|
 // |							      onClick() 		 						|
 // |----------------------------------------------------------------------------|
-int QuitButton::onClick() {
-	debug ("QuitButton: onClick() called.");
+int ZenModeButton::onClick() {
+	debug ("ZenModeButton: onClick() called.");
 
+	// TODO: Change to ZENMODE when screen is added
 	parent->setNextScreen(QUIT);
 	parent->setDone(true);
 

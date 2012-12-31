@@ -73,7 +73,7 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
-    <ClCompile Include="QuitButton.cpp" />
+    <ClCompile Include="ScreenChangeButton.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="Util.cpp" />
@@ -89,7 +89,7 @@
     <ClInclude Include="ImageManager.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="MenuScreen.h" />
-    <ClInclude Include="QuitButton.h" />
+    <ClInclude Include="ScreenChangeButton.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="TitleScreen.h" />

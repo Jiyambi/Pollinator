@@ -17,18 +17,18 @@
 Text::Text () : 
 	font(NULL), 
 	color(al_map_rgb(255,255,255)),
-	align(ALLEGRO_ALIGN_LEFT) {
+	align(ALLEGRO_ALIGN_CENTRE) {
 }
 Text::Text (ALLEGRO_FONT* new_font) :
 	font(new_font), 
 	color(al_map_rgb(255,255,255)), 
-	align(ALLEGRO_ALIGN_LEFT) {
+	align(ALLEGRO_ALIGN_CENTRE) {
 
 }
 Text::Text (ALLEGRO_FONT* new_font, int r, int g, int b) :
 	font(new_font), 
 	color(al_map_rgb(255,255,255)), 
-	align(ALLEGRO_ALIGN_LEFT) {
+	align(ALLEGRO_ALIGN_CENTRE) {
 }
 	
 // |----------------------------------------------------------------------------|

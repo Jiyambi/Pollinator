@@ -14,7 +14,7 @@
 #include "Screen.h"
 #include "Assets.h"
 #include "Image.h"
-#include "QuitButton.h"
+#include "ScreenChangeButton.h"
 
 // |----------------------------------------------------------------------------|
 // |						  Class Definition: TitleScreen						|
@@ -51,12 +51,12 @@ protected:
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	Image* background;
-	QuitButton button_exit;
-	//Button button_adventure;
-	//Button button_zen;
-	//Button button_time;
-	//Button button_survival;
-	//Button button_score;
-	//Button button_options;
+	ScreenChangeButton button_exit;
+	ScreenChangeButton button_zen;
+	ScreenChangeButton button_adventure;
+	ScreenChangeButton button_time;
+	ScreenChangeButton button_survival;
+	ScreenChangeButton button_score;
+	ScreenChangeButton button_options;
 	//music
 };
