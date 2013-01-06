@@ -74,6 +74,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
     <ClCompile Include="ScreenChangeButton.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="MenuScreen.h" />
     <ClInclude Include="ScreenChangeButton.h" />
     <ClInclude Include="Screen.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="TitleScreen.h" />

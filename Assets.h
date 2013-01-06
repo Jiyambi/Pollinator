@@ -13,6 +13,8 @@
 #include "Util.h"
 #include "ImageManager.h"
 #include "FontManager.h"
+#include "SoundManager.h"
+
 
 // |----------------------------------------------------------------------------|
 // |						  Class Definition: Assets							|
@@ -32,5 +34,6 @@ public:
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	ImageManager graphics;
 	FontManager fonts;
+	SoundManager audio;
 	int error;
 };

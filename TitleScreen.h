@@ -15,6 +15,7 @@
 #include "Screen.h"
 #include "Assets.h"
 #include "Image.h"
+#include "Sound.h"
 
 // |----------------------------------------------------------------------------|
 // |						  Class Definition: TitleScreen						|
@@ -51,4 +52,5 @@ protected:
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	Image* background;
+	Sound* music;
 };

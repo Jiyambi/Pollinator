@@ -33,6 +33,7 @@ Assets::~Assets() {
 int Assets::init() {
 	error = error || graphics.init();
 	error = error || fonts.init();
+	error = error || audio.init();
 	if (!error) debug("Assets: object initialised.");
 	else debug("Assets: initialisation failed.");
 	return error;

@@ -101,9 +101,10 @@ int Game::init() {
 		screens[TITLE] = new TitleScreen(assets);
 		screens[MENU] = new MenuScreen(assets);
 		current_screen = screens[TITLE];
+		error = error || current_screen->onLoad();
 	}
 
-	// Input manager and asset initialisation
+	// Input manager initialisation
 	if (!error) error = error || input.init(current_screen);
 	
 	if (!error) debug("Game: object initialised.");

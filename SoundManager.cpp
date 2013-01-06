@@ -44,7 +44,7 @@ int SoundManager::init() {
 		return error = -1;
 	}
 	
-	// Reserve sample instances
+	// Reserve sample instances (number of simultaneous sounds which can play)
 	if (!al_reserve_samples(num_samples)){
 		debug("SoundManager: failed to reserve samples.");
 		return error = -1;
@@ -53,14 +53,14 @@ int SoundManager::init() {
 	// Load in sound files
 	if (!error)
 	{
-		victory = al_load_sample("data/sound/music/victory.wav");
+		victory = al_load_sample("data/sound/pollen_collect.wav");
 		if (!victory) {
-			debug("SoundManager: failed to load data/sound/music/victory.wav.");
+			debug("SoundManager: failed to load data/sound/pollen_collect.wav.");
 			error = -1;
 		}
-		meadow = al_load_sample("data/sound/music/meadow.wav");
+		meadow = al_load_sample("data/sound/pollen_collect.wav");
 		if (!meadow) {
-			debug("SoundManager: failed to load data/sound/music/meadow.wav.");
+			debug("SoundManager: failed to load data/sound/pollen_collect.wav.");
 			error = -1;
 		}
 	}

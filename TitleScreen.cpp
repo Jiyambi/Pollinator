@@ -16,13 +16,18 @@
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
 TitleScreen::TitleScreen(Assets& assets) :
-	background (NULL) {
+	background (NULL),
+	music (NULL)
+{
 
 	// Set MENU as the next screen after this one
 	setNextScreen(MENU); 
 
 	// Loading graphics into Image objects
 	background = new Image(assets.graphics.title_screen);
+
+	// Loading music into Sound object
+	music = new Sound(assets.audio.victory);
 
 	debug ("TitleScreen: object instantiated.");
 }
@@ -62,6 +67,9 @@ int TitleScreen::draw() {
 // Called when the screen is loaded.
 int TitleScreen::onLoad() {
 	debug ("TitleScreen: onLoad called.");
+
+	music->loop();
+
 	return error;
 }
 
