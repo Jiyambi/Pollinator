@@ -67,31 +67,31 @@ int ImageManager::init() {
 			error = -1;
 		}
 		flower_blue = al_load_bitmap("data/flower_blue.png");
-		if (!menu_screen) 
+		if (!flower_blue) 
 		{
 			debug("ImageManager: failed to load data/flower_blue.png.");
 			error = -1;
 		}
 		flower_red = al_load_bitmap("data/flower_red.png");
-		if (!menu_screen) 
+		if (!flower_red) 
 		{
 			debug("ImageManager: failed to load data/flower_red.png.");
 			error = -1;
 		}
 		flower_yellow = al_load_bitmap("data/flower_yellow.png");
-		if (!menu_screen) 
+		if (!flower_yellow) 
 		{
 			debug("ImageManager: failed to load data/flower_yellow.png.");
 			error = -1;
 		}
 		flower_green = al_load_bitmap("data/flower_green.png");
-		if (!menu_screen) 
+		if (!flower_green) 
 		{
 			debug("ImageManager: failed to load data/flower_green.png.");
 			error = -1;
 		}
 		flower_gray = al_load_bitmap("data/flower_gray.png");
-		if (!menu_screen) 
+		if (!flower_gray) 
 		{
 			debug("ImageManager: failed to load data/flower_gray.png.");
 			error = -1;
