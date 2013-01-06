@@ -30,6 +30,9 @@ public:
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	// TO ADD: Sound objects
+	int num_samples;
+	ALLEGRO_SAMPLE* victory;
+	ALLEGRO_SAMPLE* meadow;
 	int error;
 
 };

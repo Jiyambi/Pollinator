@@ -15,6 +15,9 @@
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
 SoundManager::SoundManager () :
+	num_samples(2),
+	victory(0),
+	meadow(0),
 	error(0) 
 {
 }
@@ -31,22 +34,35 @@ SoundManager::~SoundManager() {
 // |----------------------------------------------------------------------------|
 int SoundManager::init() {
 
-	// Initiallize Allegro Image I/O Addon
+	// Initiallise Allegro Image I/O Addon
 	if(!al_install_audio()) {
-		debug("SoundManager: failed to install audio.");
-		error = -1;
+		debug("SoundManager: failed to initialise audio addon.");
+		return error = -1;
+	}
+	if(!al_init_acodec_addon()){
+		debug("SoundManager: failed to initialise codec addon.");
+		return error = -1;
+	}
+	
+	// Reserve sample instances
+	if (!al_reserve_samples(num_samples)){
+		debug("SoundManager: failed to reserve samples.");
+		return error = -1;
 	}
 
 	// Load in sound files
 	if (!error)
 	{
-		// Image code example
-		//title_screen = al_load_bitmap("data/title_screen.bmp");
-		//if (!title_screen) 
-		//{
-		//	debug("SoundManager: failed to load data/title_screen.bmp.");
-		//	error = -1;
-		//}
+		victory = al_load_sample("data/sound/music/victory.wav");
+		if (!victory) {
+			debug("SoundManager: failed to load data/sound/music/victory.wav.");
+			error = -1;
+		}
+		meadow = al_load_sample("data/sound/music/meadow.wav");
+		if (!meadow) {
+			debug("SoundManager: failed to load data/sound/music/meadow.wav.");
+			error = -1;
+		}
 	}
 
 	if (!error) debug("SoundManager: object initialised.");
