@@ -17,12 +17,12 @@
 // |----------------------------------------------------------------------------|
 Image::Image() : 
 	graphic(NULL),
-	alpha(0),
+	alpha(1),
 	angle(0) {}
 
 Image::Image(ALLEGRO_BITMAP* new_graphic) : 
 	graphic(new_graphic),
-	alpha(0),
+	alpha(1),
 	angle(0) {
 
 	// Get size
@@ -36,7 +36,7 @@ Image::Image(ALLEGRO_BITMAP* new_graphic) :
 void Image::draw() {
 	if (graphic) {
 		if (angle) {
-			if (alpha) {
+			if (alpha != 1) {
 				al_draw_tinted_rotated_bitmap(graphic, 
 					al_map_rgba_f(1, 1, 1, alpha), size.x/2, size.y/2, 
 					anchor.x + size.x/2, anchor.y + size.y/2, angle, 0);
@@ -47,7 +47,12 @@ void Image::draw() {
 			}
 		}
 		else {
-			al_draw_bitmap(graphic, anchor.x, anchor.y, 0);
+			if (alpha != 1) {
+				al_draw_tinted_bitmap(graphic, al_map_rgba_f(1, 1, 1, alpha), anchor.x, anchor.y, 0);
+			}
+			else {
+				al_draw_bitmap(graphic, anchor.x, anchor.y, 0);
+			}
 		}
 	}
 }

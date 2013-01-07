@@ -29,8 +29,9 @@ public:
 	void virtual draw();
 	// Draws the image to the active bitmap;
 
+	// Setters
 	void virtual setAnchor(Coord new_anchor) { anchor = new_anchor; }
-	// Set a new anchor for the image.
+	void virtual setAngle(double new_angle) { angle = new_angle; }
 	
 protected:
 
@@ -38,7 +39,7 @@ protected:
 	ALLEGRO_BITMAP* graphic;		// Pointer to graphic (NOT managed by the image, instead managed by graphics manager)
     Coord anchor;					// Location on the screen (of upper left corner)
     Coord size;						// Width and height of the image
-    int alpha;						// Transparency of the image. Normally set to 100, if set to a different number, uses a different draw method.
-    int angle; // in radians		// Orientation, used for rotating images, 0 if the image should not be rotated.
+    double alpha;					// Transparency of the image. Normally set to 1, if set to a different number, uses a different draw method.
+    double angle; // in radians		// Orientation, used for rotating images, 0 if the image should not be rotated.
 
 };

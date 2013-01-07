@@ -2,8 +2,8 @@
 // Developed by Bounder Studios
 // Copyright Sarah Herzog, 2011, all rights reserved.
 //
-// ImageManager
-//		Contains all BITMAP objects to be used throughout the program.
+// Player
+//		Controls the player object's position, movement, image, and actions. 
 #pragma once
 
 // |----------------------------------------------------------------------------|
@@ -11,33 +11,35 @@
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
 #include "Util.h"
+#include "Circle.h"
+#include "Assets.h"
+#include "Screen.h"
 
 // |----------------------------------------------------------------------------|
-// |					  Class Definition: ImageManager						|
+// |					      Class Definition: Player							|
 // |----------------------------------------------------------------------------|
-class ImageManager {
-
+class Player : public Circle {
+	
 public:
 
-	ImageManager ();
+	Player (Assets& assets);
 	// Constructor
 
-	~ImageManager();
-	// Destructor
+	~Player ();
+	// De-constructor
 
-	int init();
-	// Sets up image manager.
-
+	int virtual logic(int mouse_x, int mouse_y);
+	// Performs logic functions for the object
+	
+	// Input functions
+	int virtual onMouseDown(int button);
+	int virtual onMouseUp(int button);
+	
+protected:
+	
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-	ALLEGRO_BITMAP* title_screen;
-	ALLEGRO_BITMAP* menu_screen;
-	ALLEGRO_BITMAP* grass;
-	ALLEGRO_BITMAP* bee;
-	ALLEGRO_BITMAP* flower_blue;
-	ALLEGRO_BITMAP* flower_red;
-	ALLEGRO_BITMAP* flower_green;
-	ALLEGRO_BITMAP* flower_yellow;
-	ALLEGRO_BITMAP* flower_gray;
-	int error;
-
+	Coord target;
+	Coord mouse_position;
+	bool has_target;
+	double speed;
 };

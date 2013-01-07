@@ -11,14 +11,17 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{383a90e8-66b6-4164-8656-abb84058192e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Buttons">
-      <UniqueIdentifier>{1d411d5a-06fd-4561-ae23-1ab27b649d00}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utility">
       <UniqueIdentifier>{4fd04c40-9ea7-4000-b714-60ea2a2a10dc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{10df0739-c32f-47a1-9489-86c4611744c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Objects">
+      <UniqueIdentifier>{e95bffd6-af55-4f99-b476-fe387303aeed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Objects\Buttons">
+      <UniqueIdentifier>{1d411d5a-06fd-4561-ae23-1ab27b649d00}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -50,7 +53,7 @@
       <Filter>Assets</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>Buttons</Filter>
+      <Filter>Game Objects\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="Coord.cpp">
       <Filter>Game</Filter>
@@ -65,13 +68,19 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="ScreenChangeButton.cpp">
-      <Filter>Buttons</Filter>
+      <Filter>Game Objects\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="Util.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
     <ClCompile Include="ZenScreen.cpp">
       <Filter>Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,10 +115,10 @@
       <Filter>Screens</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>Buttons</Filter>
+      <Filter>Game Objects\Buttons</Filter>
     </ClInclude>
     <ClInclude Include="ScreenChangeButton.h">
-      <Filter>Buttons</Filter>
+      <Filter>Game Objects\Buttons</Filter>
     </ClInclude>
     <ClInclude Include="Constants.h">
       <Filter>Utility</Filter>
@@ -128,6 +137,12 @@
     </ClInclude>
     <ClInclude Include="ZenScreen.h">
       <Filter>Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

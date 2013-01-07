@@ -16,6 +16,7 @@
 #include "Assets.h"
 #include "Image.h"
 #include "Sound.h"
+#include "Player.h"
 
 // |----------------------------------------------------------------------------|
 // |						  Class Definition: ZenScreen						|
@@ -53,4 +54,5 @@ protected:
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	Image* background;
 	Sound* music;
+	Player* player;
 };

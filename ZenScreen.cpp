@@ -17,7 +17,8 @@
 // |----------------------------------------------------------------------------|
 ZenScreen::ZenScreen(Assets& assets) :
 	background (NULL),
-	music (NULL)
+	music (NULL),
+	player (NULL)
 {
 
 	// Set QUIT as the next screen after this one
@@ -29,6 +30,9 @@ ZenScreen::ZenScreen(Assets& assets) :
 	// Loading music into Sound object
 	music = new Sound(assets.audio.meadow);
 
+	// Creating player object
+	player = new Player(assets);
+
 	debug ("ZenScreen: object instantiated.");
 }
 
@@ -37,6 +41,8 @@ ZenScreen::ZenScreen(Assets& assets) :
 // |----------------------------------------------------------------------------|
 ZenScreen::~ZenScreen() {
 	delete background;
+	delete music;
+	delete player;
 	debug ("ZenScreen: object destroyed.");
 }
 
@@ -46,6 +52,8 @@ ZenScreen::~ZenScreen() {
 // The logic function, which will be called by the main game loop.
 int ZenScreen::logic(int mouse_x, int mouse_y) {
 	debug ("ZenScreen: logic() called.", 10);
+
+	if (player) player->logic(mouse_x, mouse_y);
 
 	return error;
 }
@@ -58,6 +66,8 @@ int ZenScreen::draw() {
 	debug ("ZenScreen: draw() called.", 10);
 
 	if (background) background->draw();
+	if (player) player->draw();
+
 	return error;
 }
 
@@ -91,6 +101,8 @@ int ZenScreen::onExit() {
 // Called when a mouse button is pressed down
 int ZenScreen::onMouseDown(int button) {
 	debug ("ZenScreen: onMouseDown called.");
+	
+	if (player) player->onMouseDown(button);
 
 	return error;
 }
@@ -101,7 +113,9 @@ int ZenScreen::onMouseDown(int button) {
 // Called when a mouse button is released
 int ZenScreen::onMouseUp(int button) {
 	debug ("ZenScreen: onMouseUp called.");
-	done = true;
+	
+	if (player) player->onMouseUp(button);
+
 	return error;
 }
 
@@ -111,6 +125,9 @@ int ZenScreen::onMouseUp(int button) {
 // Called when a keyboard button is pressed down
 int ZenScreen::onKeyDown(int button) {
 	debug ("ZenScreen: onKeyDown called.");
+	
+	if (player) player->onKeyDown(button);
+
 	return error;
 }
 
@@ -120,6 +137,8 @@ int ZenScreen::onKeyDown(int button) {
 // Called when a keyboard button is released
 int ZenScreen::onKeyUp(int button) {
 	debug ("ZenScreen: onKeyUp called.");
+	
+	if (player) player->onKeyUp(button);
 
 	return error;
 }

@@ -22,14 +22,7 @@ Coord Coord::operator+(const Coord& rhs) {
 	return result;
 }
 
-Coord Coord::operator+(const int& rhs) {
-	Coord result;
-	result.x = x + rhs;
-	result.y = y + rhs;
-	return result;
-}
-
-Coord Coord::operator+(const float& rhs) {
+Coord Coord::operator+(const double& rhs) {
 	Coord result;
 	result.x = x + rhs;
 	result.y = y + rhs;
@@ -42,15 +35,9 @@ Coord Coord::operator+=(const Coord& rhs) {
 	return *this;
 }
 
-Coord Coord::operator+=(const int& rhs) {
-	x += x;
-	y += y;
-	return *this;
-}
-
-Coord Coord::operator+=(const float& rhs){
-	x += x;
-	y += y;
+Coord Coord::operator+=(const double& rhs) {
+	x += rhs;
+	y += rhs;
 	return *this;
 }
 
@@ -61,14 +48,7 @@ Coord Coord::operator-(const Coord& rhs) {
 	return result;
 }
 
-Coord Coord::operator-(const int& rhs) {
-	Coord result;
-	result.x = x - rhs;
-	result.y = y - rhs;
-	return result;
-}
-
-Coord Coord::operator-(const float& rhs) {
+Coord Coord::operator-(const double& rhs) {
 	Coord result;
 	result.x = x - rhs;
 	result.y = y - rhs;
@@ -81,67 +61,35 @@ Coord Coord::operator-=(const Coord& rhs) {
 	return *this;
 }
 
-Coord Coord::operator-=(const int& rhs) {
-	x -= x;
-	y -= y;
+Coord Coord::operator-=(const double& rhs) {
+	x -= rhs;
+	y -= rhs;
 	return *this;
 }
 
-Coord Coord::operator-=(const float& rhs){
-	x -= x;
-	y -= y;
-	return *this;
-}
-
-Coord Coord::operator*(const int& rhs) {
+Coord Coord::operator*(const double& rhs) {
 	Coord result;
 	result.x = x * rhs;
 	result.y = y * rhs;
 	return result;
 }
 
-Coord Coord::operator*(const float& rhs) {
-	Coord result;
-	result.x = x * rhs;
-	result.y = y * rhs;
-	return result;
-}
-
-Coord Coord::operator*=(const int& rhs) {
-	x *= x;
-	y *= y;
+Coord Coord::operator*=(const double& rhs) {
+	x *= rhs;
+	y *= rhs;
 	return *this;
 }
 
-Coord Coord::operator*=(const float& rhs){
-	x *= x;
-	y *= y;
-	return *this;
-}
-
-Coord Coord::operator/(const int& rhs) {
+Coord Coord::operator/(const double& rhs) {
 	Coord result;
 	result.x = x / rhs;
 	result.y = y / rhs;
 	return result;
 }
 
-Coord Coord::operator/(const float& rhs) {
-	Coord result;
-	result.x = x / rhs;
-	result.y = y / rhs;
-	return result;
-}
-
-Coord Coord::operator/=(const int& rhs) {
-	x /= x;
-	y /= y;
-	return *this;
-}
-
-Coord Coord::operator/=(const float& rhs){
-	x /= x;
-	y /= y;
+Coord Coord::operator/=(const double& rhs) {
+	x /= rhs;
+	y /= rhs;
 	return *this;
 }
 
@@ -153,13 +101,7 @@ Coord Coord::operator=(const Coord& rhs) {
 	return *this;
 }
 
-Coord Coord::operator=(const int& rhs) {
-	x = rhs;
-	y = rhs;
-	return *this;
-}
-
-Coord Coord::operator=(const float& rhs) {
+Coord Coord::operator=(const double& rhs) {
 	x = rhs;
 	y = rhs;
 	return *this;

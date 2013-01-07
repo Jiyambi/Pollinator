@@ -18,6 +18,7 @@ ImageManager::ImageManager () :
 	title_screen(NULL),
 	menu_screen(NULL),
 	grass(NULL),
+	bee(NULL),
 	flower_blue(NULL),
 	flower_red(NULL),
 	flower_green(NULL),
@@ -35,6 +36,7 @@ ImageManager::~ImageManager() {
 	al_destroy_bitmap(title_screen);
 	al_destroy_bitmap(menu_screen);
 	al_destroy_bitmap(grass);
+	al_destroy_bitmap(bee);
 	al_destroy_bitmap(flower_blue);
 	al_destroy_bitmap(flower_red);
 	al_destroy_bitmap(flower_green);
@@ -102,6 +104,12 @@ int ImageManager::init() {
 		if (!grass) 
 		{
 			debug("ImageManager: failed to load data/grass.bmp.");
+			error = -1;
+		}
+		bee = al_load_bitmap("data/bee.png");
+		if (!bee) 
+		{
+			debug("ImageManager: failed to load data/bee.bmp.");
 			error = -1;
 		}
 	}
