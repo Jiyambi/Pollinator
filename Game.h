@@ -17,6 +17,7 @@
 #include "Input.h"
 #include "TitleScreen.h"
 #include "MenuScreen.h"
+#include "ZenScreen.h"
 
 
 // |----------------------------------------------------------------------------|

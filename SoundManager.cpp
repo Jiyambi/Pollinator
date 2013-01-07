@@ -18,6 +18,7 @@ SoundManager::SoundManager () :
 	num_samples(2),
 	victory(0),
 	meadow(0),
+	button_click(0),
 	error(0) 
 {
 }
@@ -27,6 +28,9 @@ SoundManager::SoundManager () :
 // |----------------------------------------------------------------------------|
 SoundManager::~SoundManager() {
 	// Destroy all sound objects
+	al_destroy_sample(victory);
+	al_destroy_sample(meadow);
+	al_destroy_sample(button_click);
 }
 
 // |----------------------------------------------------------------------------|
@@ -53,14 +57,19 @@ int SoundManager::init() {
 	// Load in sound files
 	if (!error)
 	{
-		victory = al_load_sample("data/sound/pollen_collect.wav");
+		victory = al_load_sample("data/sound/music/victory.wav");
 		if (!victory) {
-			debug("SoundManager: failed to load data/sound/pollen_collect.wav.");
+			debug("SoundManager: failed to load data/sound/music/victory.wav.");
 			error = -1;
 		}
-		meadow = al_load_sample("data/sound/pollen_collect.wav");
+		meadow = al_load_sample("data/sound/music/meadow.wav");
 		if (!meadow) {
-			debug("SoundManager: failed to load data/sound/pollen_collect.wav.");
+			debug("SoundManager: failed to load data/sound/music/meadow.wav.");
+			error = -1;
+		}
+		button_click = al_load_sample("data/sound/button_click.wav");
+		if (!button_click) {
+			debug("SoundManager: failed to load data/sound/button_click.wav.");
 			error = -1;
 		}
 	}

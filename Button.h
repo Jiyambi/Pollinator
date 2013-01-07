@@ -12,6 +12,7 @@
 #include "Constants.h"
 #include "Coord.h"
 #include "Image.h"
+#include "Sound.h"
 #include "Assets.h"
 #include "Text.h"
 
@@ -52,12 +53,17 @@ protected:
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	Text* text;						// Text that the image will display
+
+	Sound* click_sound;					// Click sound for the button
+
 	Image* image_normal;			// Pointer to image for this button
 	Image* image_selected;			// Pointer to selected image for this button
 	Image* image_pressed;			// Pointer to pressed image for this button
 	Image* image_disabled;			// Pointer to disabled image for this button
+
     Coord anchor;					// Location on the screen (of upper left corner)
     Coord size;						// Width and height of the button
+
 	bool enabled;					// True if the button is enabled, false if disabled
 	bool pressed;					// True if the button is pressed, false if not
 	bool selected;					// True if the button is selected, false if not

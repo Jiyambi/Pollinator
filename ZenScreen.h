@@ -2,32 +2,32 @@
 // Developed by Bounder Studios
 // Copyright Sarah Herzog, 2011, all rights reserved.
 //
-// MenuScreen
-//		Controls the image, music, and buttons for the main menu of the game. It 
-//		will set up the onClick functions for each of the buttons.
+// ZenScreen
+//		Contains all objects pertaining to the zen mode. Manages the
+//		logic and draw loops for that screen.
 #pragma once
 
 // |----------------------------------------------------------------------------|
 // |								Includes									|
 // |----------------------------------------------------------------------------|
 #include "Constants.h"
+#include "Util.h"
 #include "Screen.h"
 #include "Assets.h"
 #include "Image.h"
 #include "Sound.h"
-#include "ScreenChangeButton.h"
 
 // |----------------------------------------------------------------------------|
-// |						  Class Definition: TitleScreen						|
+// |						  Class Definition: ZenScreen						|
 // |----------------------------------------------------------------------------|
-class MenuScreen : public Screen {
+class ZenScreen : public Screen {
 
 public:
 
-	MenuScreen (Assets& assets);
+	ZenScreen (Assets& assets);
 	// Constructor
 
-	~MenuScreen();
+	~ZenScreen();
 	// Destructor
 
 	int virtual logic(int mouse_x, int mouse_y);
@@ -53,13 +53,4 @@ protected:
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	Image* background;
 	Sound* music;
-
-	ScreenChangeButton button_exit;
-	ScreenChangeButton button_zen;
-	ScreenChangeButton button_adventure;
-	ScreenChangeButton button_time;
-	ScreenChangeButton button_survival;
-	ScreenChangeButton button_score;
-	ScreenChangeButton button_options;
-
 };

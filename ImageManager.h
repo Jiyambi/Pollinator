@@ -31,6 +31,7 @@ public:
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 	ALLEGRO_BITMAP* title_screen;
 	ALLEGRO_BITMAP* menu_screen;
+	ALLEGRO_BITMAP* grass;
 	ALLEGRO_BITMAP* flower_blue;
 	ALLEGRO_BITMAP* flower_red;
 	ALLEGRO_BITMAP* flower_green;

@@ -29,10 +29,12 @@ public:
 	// Sets up image manager.
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~   Data Members   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-	// TO ADD: Sound objects
 	int num_samples;
+
 	ALLEGRO_SAMPLE* victory;
 	ALLEGRO_SAMPLE* meadow;
+	ALLEGRO_SAMPLE* button_click;
+
 	int error;
 
 };

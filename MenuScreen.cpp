@@ -17,6 +17,7 @@
 // |----------------------------------------------------------------------------|
 MenuScreen::MenuScreen(Assets& assets) :
 	background (NULL),
+	music (NULL),
 	button_exit(assets, this, QUIT, "QUIT"),
 	button_zen(assets, this, ZEN, "ZEN MODE"),
 	button_adventure(assets, this, ADVENTURE, "ADVENTURE MODE"),
@@ -31,6 +32,9 @@ MenuScreen::MenuScreen(Assets& assets) :
 	// Loading graphics into Image objects
 	background = new Image(assets.graphics.menu_screen);
 
+	// Loading music into Sound object
+	music = new Sound(assets.audio.victory);
+
 	// Set button locations
 	button_zen.setAnchor(Coord(250,100));
 	button_adventure.setAnchor(Coord(550,100));
@@ -41,7 +45,6 @@ MenuScreen::MenuScreen(Assets& assets) :
 	button_exit.setAnchor(Coord(750,550));
 
 	// Temporarily disable buttons
-	button_zen.setEnabled(false);
 	button_adventure.setEnabled(false);
 	button_time.setEnabled(false);
 	button_survival.setEnabled(false);
@@ -56,6 +59,7 @@ MenuScreen::MenuScreen(Assets& assets) :
 // |----------------------------------------------------------------------------|
 MenuScreen::~MenuScreen() {
 	delete background;
+	delete music;
 	debug ("MenuScreen: object destroyed.");
 }
 
@@ -96,12 +100,6 @@ int MenuScreen::draw() {
 	button_survival.draw();
 	button_score.draw();
 	button_options.draw();
-	
-	button_adventure.setEnabled(false);
-	button_time.setEnabled(false);
-	button_survival.setEnabled(false);
-	button_score.setEnabled(false);
-	button_options.setEnabled(false);
 
 	return error;
 }
@@ -121,6 +119,9 @@ int MenuScreen::onLoad() {
 // Called when switching to a different screen
 int MenuScreen::onExit() {
 	debug ("MenuScreen: onExit called.");
+
+	if (music) music->stop_all();
+
 	return error;
 }
 
@@ -134,6 +135,11 @@ int MenuScreen::onMouseDown(int button) {
 	// Call button functions
 	button_exit.onMouseDown(button);
 	button_zen.onMouseDown(button);
+	button_adventure.onMouseDown(button);
+	button_time.onMouseDown(button);
+	button_survival.onMouseDown(button);
+	button_score.onMouseDown(button);
+	button_options.onMouseDown(button);
 
 	return error;
 }
@@ -148,6 +154,11 @@ int MenuScreen::onMouseUp(int button) {
 	// Call button functions
 	button_exit.onMouseUp(button);
 	button_zen.onMouseUp(button);
+	button_adventure.onMouseUp(button);
+	button_time.onMouseUp(button);
+	button_survival.onMouseUp(button);
+	button_score.onMouseUp(button);
+	button_options.onMouseUp(button);
 
 	return error;
 }
@@ -162,6 +173,11 @@ int MenuScreen::onKeyDown(int button) {
 	// Call button functions
 	button_exit.onKeyDown(button);
 	button_zen.onKeyDown(button);
+	button_adventure.onKeyDown(button);
+	button_time.onKeyDown(button);
+	button_survival.onKeyDown(button);
+	button_score.onKeyDown(button);
+	button_options.onKeyDown(button);
 
 	return error;
 }
@@ -176,6 +192,11 @@ int MenuScreen::onKeyUp(int button) {
 	// Call button functions
 	button_exit.onKeyUp(button);
 	button_zen.onKeyUp(button);
+	button_adventure.onKeyUp(button);
+	button_time.onKeyUp(button);
+	button_survival.onKeyUp(button);
+	button_score.onKeyUp(button);
+	button_options.onKeyUp(button);
 
 	return error;
 }

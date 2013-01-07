@@ -2,51 +2,50 @@
 // Developed by Bounder Studios
 // Copyright Sarah Herzog, 2011, all rights reserved.
 //
-// TitleScreen
-//		Contains all objects pertaining to the title screen. Manages the
+// ZenScreen
+//		Contains all objects pertaining to the zen mode. Manages the
 //		logic and draw loops for that screen.
 #pragma once
 
 // |----------------------------------------------------------------------------|
 // |								Includes									|
 // |----------------------------------------------------------------------------|
-#include "TitleScreen.h"
+#include "ZenScreen.h"
 
 // |----------------------------------------------------------------------------|
 // |							   Constructor									|
 // |----------------------------------------------------------------------------|
-TitleScreen::TitleScreen(Assets& assets) :
+ZenScreen::ZenScreen(Assets& assets) :
 	background (NULL),
 	music (NULL)
 {
 
-	// Set MENU as the next screen after this one
-	setNextScreen(MENU); 
+	// Set QUIT as the next screen after this one
+	setNextScreen(QUIT); 
 
 	// Loading graphics into Image objects
-	background = new Image(assets.graphics.title_screen);
+	background = new Image(assets.graphics.grass);
 
 	// Loading music into Sound object
-	music = new Sound(assets.audio.victory);
+	music = new Sound(assets.audio.meadow);
 
-	debug ("TitleScreen: object instantiated.");
+	debug ("ZenScreen: object instantiated.");
 }
 
 // |----------------------------------------------------------------------------|
 // |							   Destructor									|
 // |----------------------------------------------------------------------------|
-TitleScreen::~TitleScreen() {
+ZenScreen::~ZenScreen() {
 	delete background;
-	delete music;
-	debug ("TitleScreen: object destroyed.");
+	debug ("ZenScreen: object destroyed.");
 }
 
 // |----------------------------------------------------------------------------|
 // |							     logic()									|
 // |----------------------------------------------------------------------------|
 // The logic function, which will be called by the main game loop.
-int TitleScreen::logic(int mouse_x, int mouse_y) {
-	debug ("TitleScreen: logic() called.", 10);
+int ZenScreen::logic(int mouse_x, int mouse_y) {
+	debug ("ZenScreen: logic() called.", 10);
 
 	return error;
 }
@@ -55,8 +54,8 @@ int TitleScreen::logic(int mouse_x, int mouse_y) {
 // |							     draw()										|
 // |----------------------------------------------------------------------------|
 // The draw function, which will be called by the main game loop.
-int TitleScreen::draw() {
-	debug ("TitleScreen: draw() called.", 10);
+int ZenScreen::draw() {
+	debug ("ZenScreen: draw() called.", 10);
 
 	if (background) background->draw();
 	return error;
@@ -66,9 +65,9 @@ int TitleScreen::draw() {
 // |							    onLoad()									|
 // |----------------------------------------------------------------------------|
 // Called when the screen is loaded.
-int TitleScreen::onLoad() {
-	debug ("TitleScreen: onLoad called.");
-
+int ZenScreen::onLoad() {
+	debug ("ZenScreen: onLoad called.");
+	
 	if (music) music->loop();
 
 	return error;
@@ -78,8 +77,11 @@ int TitleScreen::onLoad() {
 // |							    onExit()									|
 // |----------------------------------------------------------------------------|
 // Called when switching to a different screen
-int TitleScreen::onExit() {
-	debug ("TitleScreen: onExit called.");
+int ZenScreen::onExit() {
+	debug ("ZenScreen: onExit called.");
+
+	if (music) music->stop();
+
 	return error;
 }
 
@@ -87,8 +89,8 @@ int TitleScreen::onExit() {
 // |							  onMouseDown()									|
 // |----------------------------------------------------------------------------|
 // Called when a mouse button is pressed down
-int TitleScreen::onMouseDown(int button) {
-	debug ("TitleScreen: onMouseDown called.");
+int ZenScreen::onMouseDown(int button) {
+	debug ("ZenScreen: onMouseDown called.");
 
 	return error;
 }
@@ -97,8 +99,8 @@ int TitleScreen::onMouseDown(int button) {
 // |							  onMouseUp()									|
 // |----------------------------------------------------------------------------|
 // Called when a mouse button is released
-int TitleScreen::onMouseUp(int button) {
-	debug ("TitleScreen: onMouseUp called.");
+int ZenScreen::onMouseUp(int button) {
+	debug ("ZenScreen: onMouseUp called.");
 	done = true;
 	return error;
 }
@@ -107,8 +109,8 @@ int TitleScreen::onMouseUp(int button) {
 // |							  onKeyDown()									|
 // |----------------------------------------------------------------------------|
 // Called when a keyboard button is pressed down
-int TitleScreen::onKeyDown(int button) {
-	debug ("TitleScreen: onKeyDown called.");
+int ZenScreen::onKeyDown(int button) {
+	debug ("ZenScreen: onKeyDown called.");
 	return error;
 }
 
@@ -116,8 +118,8 @@ int TitleScreen::onKeyDown(int button) {
 // |							   onKeyUp()									|
 // |----------------------------------------------------------------------------|
 // Called when a keyboard button is released
-int TitleScreen::onKeyUp(int button) {
-	debug ("TitleScreen: onKeyUp called.");
+int ZenScreen::onKeyUp(int button) {
+	debug ("ZenScreen: onKeyUp called.");
 
 	return error;
 }

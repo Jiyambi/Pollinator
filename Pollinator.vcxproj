@@ -79,6 +79,7 @@
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="Util.cpp" />
+    <ClCompile Include="ZenScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assets.h" />
@@ -98,6 +99,7 @@
     <ClInclude Include="Text.h" />
     <ClInclude Include="TitleScreen.h" />
     <ClInclude Include="Util.h" />
+    <ClInclude Include="ZenScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

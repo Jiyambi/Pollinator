@@ -22,6 +22,9 @@ ScreenChangeButton::ScreenChangeButton(Assets& assets, Screen* new_parent, SCREE
 	image_selected = new Image(assets.graphics.flower_yellow);
 	image_pressed = new Image(assets.graphics.flower_red);
 	image_disabled = new Image(assets.graphics.flower_gray);
+	
+	// Loading sound
+	click_sound = new Sound(assets.audio.button_click);
 
 	// Set size of button
 	size.x = 210;
@@ -44,7 +47,7 @@ ScreenChangeButton::ScreenChangeButton(Assets& assets, Screen* new_parent, SCREE
 // |							   Destructor									|
 // |----------------------------------------------------------------------------|
 ScreenChangeButton::~ScreenChangeButton() {
-	debug ("ScreenChangeButton: object instantiated.");
+	debug ("ScreenChangeButton: instance destroyed.");
 }
 
 // |----------------------------------------------------------------------------|

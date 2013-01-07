@@ -15,6 +15,7 @@
 // |----------------------------------------------------------------------------|
 Button::Button() :
 	text(0),
+	click_sound(0),
 	image_normal(0),
 	image_selected(0),
 	image_pressed(0),
@@ -35,6 +36,7 @@ Button::Button() :
 // |----------------------------------------------------------------------------|
 Button::~Button() {
 	delete text;	
+	delete click_sound;	
 	delete image_normal;		
 	delete image_selected;		
 	delete image_pressed;		
@@ -119,8 +121,9 @@ int Button::onMouseDown(int button) {
 int Button::onMouseUp(int button) {
 	debug ("Button: onMouseUp() called.");
 
-	if (selected && pressed) {
+	if (enabled && selected && pressed) {
 		pressed = false;
+		if(click_sound) click_sound->play();
 		onClick();
 	}
 	mouse_down = false;

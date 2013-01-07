@@ -100,6 +100,7 @@ int Game::init() {
 		}
 		screens[TITLE] = new TitleScreen(assets);
 		screens[MENU] = new MenuScreen(assets);
+		screens[ZEN] = new ZenScreen(assets);
 		current_screen = screens[TITLE];
 		error = error || current_screen->onLoad();
 	}
@@ -156,6 +157,9 @@ int Game::run() {
 		if (current_screen->isDone()) {
 			debug("Game: current screen done");
 
+			// Perform onExit functions for the old screen
+			error = error || current_screen->onExit();
+
 			// Check if the screen is telling the game to quit.
 			if (current_screen->getNextScreen() == QUIT) {
 				debug("Game: quitting");
@@ -166,8 +170,6 @@ int Game::run() {
 			// If the screen is NOT telling the game to quit, load the next screen
 			else {
 				debug("Game: moving to next screen");
-				// Perform onExit functions for the old screen
-				error = error || current_screen->onExit();
 				// Set the new screen as current
 				current_screen = screens[current_screen->getNextScreen()];
 				// Perform onLoad functions for the new screen
