@@ -16,15 +16,12 @@ allegro.log
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
-[Rr]elease/
 *_i.c
 *_p.c
 *.ilk
 *.meta
 *.obj
 *.pch
-*.pdb
 *.pgc
 *.pgd
 *.rsp
@@ -36,6 +33,11 @@ allegro.log
 *.vspscc
 .builds
 *.dotCover
+*.tlog
+*.log
+*.manifest
+*.lastbuildstate
+*.idb
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
@@ -71,7 +73,6 @@ DocProject/Help/html
 publish
 
 # Others
-[Bb]in
 [Oo]bj
 sql
 TestResults
