@@ -16,6 +16,8 @@ allegro.log
 *.sln.docstates
 
 # Build results
+[Dd]ebug/
+[Rr]elease/
 *_i.c
 *_p.c
 *.ilk
@@ -33,11 +35,6 @@ allegro.log
 *.vspscc
 .builds
 *.dotCover
-*.tlog
-*.log
-*.manifest
-*.lastbuildstate
-*.idb
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
